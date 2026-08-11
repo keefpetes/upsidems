@@ -26,11 +26,19 @@ export function HeroBaseArt({ className = "" }: Props) {
   );
 }
 
+/**
+ * Parallax layers use a viewBox grown proportionally to their oversized CSS box
+ * (matching the 170% w/h overscan on the Parallax wrapper) so preserveAspectRatio
+ * scales them identically to the static base layer instead of zooming in from
+ * center, keeping every layer aligned with the base layer at rest.
+ */
+const layerViewBox = "-280 -175 1360 850";
+
 /** Sun disc, low in the sky. Parallax layer, transparent background. */
 export function HeroSunArt({ className = "" }: Props) {
   return (
     <svg
-      viewBox="0 0 800 500"
+      viewBox={layerViewBox}
       className={className}
       preserveAspectRatio="xMidYMid slice"
       xmlns="http://www.w3.org/2000/svg"
@@ -44,7 +52,7 @@ export function HeroSunArt({ className = "" }: Props) {
 export function HeroMountainsArt({ className = "" }: Props) {
   return (
     <svg
-      viewBox="0 0 800 500"
+      viewBox={layerViewBox}
       className={className}
       preserveAspectRatio="xMidYMid slice"
       xmlns="http://www.w3.org/2000/svg"
@@ -59,7 +67,7 @@ export function HeroMountainsArt({ className = "" }: Props) {
 export function HeroWavesArt({ className = "" }: Props) {
   return (
     <svg
-      viewBox="0 0 800 500"
+      viewBox={layerViewBox}
       className={className}
       preserveAspectRatio="xMidYMid slice"
       xmlns="http://www.w3.org/2000/svg"
@@ -113,7 +121,7 @@ function PineTree({ cx, scale = 1 }: { cx: number; scale?: number }) {
 export function HeroForegroundArt({ className = "" }: Props) {
   return (
     <svg
-      viewBox="0 0 800 500"
+      viewBox={layerViewBox}
       className={className}
       preserveAspectRatio="xMidYMid slice"
       xmlns="http://www.w3.org/2000/svg"
