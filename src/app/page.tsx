@@ -2,6 +2,13 @@ import Link from "next/link";
 import Parallax from "@/components/Parallax";
 import PlaceholderMedia from "@/components/PlaceholderMedia";
 import { BeachPathwayArt, StoryMarkArt } from "@/components/illustrations";
+import {
+  HeroBaseArt,
+  HeroForegroundArt,
+  HeroMountainsArt,
+  HeroSunArt,
+  HeroWavesArt,
+} from "@/components/heroLayers";
 import { caseStudies, paths, stories } from "@/lib/site";
 
 const whatWeDo = [
@@ -25,15 +32,41 @@ export default function Home() {
   return (
     <>
       {/* Hero */}
-      <section className="relative">
-        <Parallax speed={0.5}>
-          <PlaceholderMedia
-            label="Illustration placeholder — swap for real installation photo"
-            aspect="aspect-[16/10] md:aspect-[21/9]"
-            className="rounded-none border-0"
-            art={<BeachPathwayArt className="w-full h-full" />}
-          />
-        </Parallax>
+      <section className="relative overflow-hidden">
+        <PlaceholderMedia
+          label="Illustration placeholder — swap for real installation photo"
+          aspect="aspect-[16/10] md:aspect-[21/9]"
+          className="rounded-none border-0"
+          art={
+            <>
+              <HeroBaseArt className="absolute inset-0 w-full h-full" />
+              <Parallax
+                speed={0.15}
+                className="absolute inset-x-0 -top-1/3 h-[170%] will-change-transform"
+              >
+                <HeroSunArt className="w-full h-full" />
+              </Parallax>
+              <Parallax
+                speed={0.25}
+                className="absolute inset-x-0 -top-1/3 h-[170%] will-change-transform"
+              >
+                <HeroMountainsArt className="w-full h-full" />
+              </Parallax>
+              <Parallax
+                speed={0.35}
+                className="absolute inset-x-0 -top-1/3 h-[170%] will-change-transform"
+              >
+                <HeroWavesArt className="w-full h-full" />
+              </Parallax>
+              <Parallax
+                speed={0.5}
+                className="absolute inset-x-0 -top-1/3 h-[170%] will-change-transform"
+              >
+                <HeroForegroundArt className="w-full h-full" />
+              </Parallax>
+            </>
+          }
+        />
         <div className="mx-auto max-w-6xl px-6">
           <Parallax speed={-0.1} className="-mt-24 md:-mt-32 relative bg-cream rounded-3xl border border-ink/10 shadow-sm px-8 py-10 md:px-14 md:py-14 max-w-3xl">
             <p className="font-display italic text-rust mb-4">

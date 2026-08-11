@@ -14,6 +14,10 @@ export default function Parallax({
   const ref = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      return;
+    }
+
     let frame: number;
 
     const update = () => {
