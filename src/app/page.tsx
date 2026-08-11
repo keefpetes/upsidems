@@ -42,25 +42,25 @@ export default function Home() {
               <HeroBaseArt className="absolute inset-0 w-full h-full" />
               <Parallax
                 speed={0.15}
-                className="absolute inset-x-0 -top-1/3 h-[170%] will-change-transform"
+                className="absolute -inset-x-[35%] -top-[35%] h-[170%] will-change-transform"
               >
                 <HeroSunArt className="w-full h-full" />
               </Parallax>
               <Parallax
                 speed={0.25}
-                className="absolute inset-x-0 -top-1/3 h-[170%] will-change-transform"
+                className="absolute -inset-x-[35%] -top-[35%] h-[170%] will-change-transform"
               >
                 <HeroMountainsArt className="w-full h-full" />
               </Parallax>
               <Parallax
                 speed={0.35}
-                className="absolute inset-x-0 -top-1/3 h-[170%] will-change-transform"
+                className="absolute -inset-x-[35%] -top-[35%] h-[170%] will-change-transform"
               >
                 <HeroWavesArt className="w-full h-full" />
               </Parallax>
               <Parallax
                 speed={0.5}
-                className="absolute inset-x-0 -top-1/3 h-[170%] will-change-transform"
+                className="absolute -inset-x-[35%] -top-[35%] h-[170%] will-change-transform"
               >
                 <HeroForegroundArt className="w-full h-full" />
               </Parallax>
