@@ -38,7 +38,7 @@ export default function GetInvolved() {
                 href={`mailto:${contactEmail}?subject=${encodeURIComponent(
                   `${path.title} — Get Involved`
                 )}`}
-                className="inline-block rounded-full bg-forest text-cream px-6 py-3 text-sm hover:bg-forest-dark transition-colors"
+                className="btn-press inline-block rounded-full bg-forest text-cream px-6 py-3 text-sm hover:bg-forest-dark transition-colors"
               >
                 {path.cta}
               </a>

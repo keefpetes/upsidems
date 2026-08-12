@@ -25,7 +25,7 @@ export default function Header() {
         </nav>
         <Link
           href="/contact"
-          className="rounded-full bg-forest text-cream text-sm px-5 py-2.5 hover:bg-forest-dark transition-colors"
+          className="btn-press rounded-full bg-forest text-cream text-sm px-5 py-2.5 hover:bg-forest-dark transition-colors"
         >
           Contact
         </Link>
