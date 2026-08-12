@@ -1,3 +1,4 @@
+import Link from "next/link";
 import Parallax from "@/components/Parallax";
 import PlaceholderMedia from "@/components/PlaceholderMedia";
 import { CrossSectionArt } from "@/components/illustrations";
@@ -41,6 +42,14 @@ export default function About() {
           take a different view. When people are excluded from nature,
           movement, or public life, the issue is rarely the body. It is
           almost always the environment.
+        </p>
+        <p>
+          <Link
+            href="/manifesto"
+            className="text-forest underline underline-offset-4 hover:text-forest-dark"
+          >
+            Read our manifesto →
+          </Link>
         </p>
       </div>
 

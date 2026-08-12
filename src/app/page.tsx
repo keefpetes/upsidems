@@ -237,6 +237,16 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Manifesto link */}
+      <section className="mx-auto max-w-6xl px-6 pb-4 text-center">
+        <Link
+          href="/manifesto"
+          className="text-sm text-ink/50 underline underline-offset-4 hover:text-ink/80"
+        >
+          Read our manifesto
+        </Link>
+      </section>
+
       {/* Contact strip */}
       <section className="bg-rust text-cream">
         <div className="mx-auto max-w-6xl px-6 py-16 flex flex-col md:flex-row items-center justify-between gap-6 text-center md:text-left">
