@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Manifesto — Upside MS</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --tide:#0E2A33;
+    --tide-2:#123640;
+    --shore:#EDE6D8;
+    --seaglass:#7FB0A6;
+    --coral:#E8785A;
+    --mute:rgba(237,230,216,.52);
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    background:var(--tide);
+    color:var(--shore);
+    font-family:'Fraunces',serif;
+    font-weight:300;
+    -webkit-font-smoothing:antialiased;
+    overflow-x:hidden;
+    line-height:1.5;
+  }
+
+  /* ambient horizon — slow shifting light behind the text */
+  .horizon{
+    position:fixed;inset:0;z-index:0;pointer-events:none;
+    background:
+      radial-gradient(120% 80% at 50% 120%, rgba(127,176,166,.22), transparent 60%),
+      radial-gradient(100% 60% at 20% -10%, rgba(232,120,90,.10), transparent 55%);
+  }
+  .horizon::after{
+    content:"";position:absolute;inset:0;
+    background:radial-gradient(90% 50% at 50% 110%, rgba(127,176,166,.16), transparent 60%);
+    animation:tide 14s ease-in-out infinite alternate;
+  }
+  @keyframes tide{
+    from{transform:translateY(0) scale(1);opacity:.7}
+    to{transform:translateY(-4%) scale(1.06);opacity:1}
+  }
+
+  .grain{
+    position:fixed;inset:0;z-index:1;pointer-events:none;opacity:.5;
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.028'/%3E%3C/svg%3E");
+  }
+
+  main{position:relative;z-index:2}
+
+  .utility{
+    font-family:'Inter',sans-serif;font-weight:500;
+    font-size:.72rem;letter-spacing:.28em;text-transform:uppercase;
+    color:var(--seaglass);
+  }
+
+  /* opening */
+  .open{
+    min-height:100vh;display:flex;flex-direction:column;justify-content:center;
+    padding:0 8vw;max-width:1100px;margin:0 auto;
+  }
+  .open .utility{margin-bottom:34px}
+  .open h1{
+    font-weight:300;font-size:clamp(2.2rem,5.4vw,4.4rem);line-height:1.12;
+    letter-spacing:-.02em;max-width:16ch;
+  }
+  .open h1 em{font-style:italic;color:var(--seaglass)}
+  .scrollcue{margin-top:70px;font-family:'Inter',sans-serif;font-size:.72rem;letter-spacing:.2em;text-transform:uppercase;color:var(--mute);display:flex;align-items:center;gap:14px}
+  .scrollcue .ln{width:60px;height:1px;background:linear-gradient(90deg,var(--seaglass),transparent)}
+
+  /* the reading column */
+  .read{max-width:760px;margin:0 auto;padding:14vh 8vw}
+  .line{
+    font-size:clamp(1.35rem,2.5vw,1.9rem);
+    line-height:1.5;margin:0 0 1.5em;
+    opacity:0;transform:translateY(22px);
+    transition:opacity 1s ease,transform 1s ease;
+  }
+  .line.in{opacity:1;transform:none}
+  .line.dim{color:var(--mute);font-size:clamp(1.15rem,2vw,1.5rem)}
+
+  /* held lines — full viewport, alone */
+  .held{
+    min-height:82vh;display:flex;align-items:center;justify-content:center;
+    text-align:center;padding:0 8vw;
+  }
+  .held p{
+    font-size:clamp(2.4rem,6vw,5rem);font-weight:300;line-height:1.08;
+    letter-spacing:-.025em;max-width:14ch;
+    opacity:0;transform:translateY(30px) scale(.98);
+    transition:opacity 1.4s ease,transform 1.4s ease;
+  }
+  .held.in p{opacity:1;transform:none}
+  .held .accent{color:var(--coral)}
+  .held .glass{color:var(--seaglass)}
+
+  /* stanza — grouped short lines that build */
+  .stanza{max-width:760px;margin:0 auto;padding:8vh 8vw}
+  .stanza .line{margin-bottom:.5em;font-size:clamp(1.35rem,2.5vw,1.9rem)}
+
+  .close{
+    min-height:90vh;display:flex;flex-direction:column;justify-content:center;
+    max-width:900px;margin:0 auto;padding:0 8vw;text-align:center;
+  }
+  .close .big{
+    font-size:clamp(2.6rem,6.5vw,5.2rem);font-weight:300;line-height:1.05;
+    letter-spacing:-.03em;
+    opacity:0;transform:translateY(30px);transition:opacity 1.4s ease,transform 1.4s ease;
+  }
+  .close.in .big{opacity:1;transform:none}
+  .close .big em{font-style:italic;color:var(--seaglass)}
+  .sig{margin-top:80px;opacity:0;transition:opacity 1.2s ease .3s}
+  .close.in .sig{opacity:1}
+  .sig .mark{font-family:'Inter',sans-serif;font-size:.72rem;letter-spacing:.28em;text-transform:uppercase;color:var(--seaglass)}
+
+  footer{padding:60px 8vw;text-align:center;border-top:1px solid rgba(237,230,216,.12);position:relative;z-index:2}
+  footer .utility{color:var(--mute)}
+
+  @media(prefers-reduced-motion:reduce){
+    .horizon::after{animation:none}
+    .line,.held p,.close .big,.sig{opacity:1;transform:none;transition:none}
+  }
+</style>
+</head>
+<body>
+<div class="horizon"></div>
+<div class="grain"></div>
+
+<main>
+  <!-- OPENING -->
+  <section class="open">
+    <div class="utility">Upside MS · Manifesto</div>
+    <h1>The limits we attribute to people often belong to the <em>environment around them.</em></h1>
+    <div class="scrollcue"><span class="ln"></span>Read</div>
+  </section>
+
+  <!-- READING -->
+  <section class="read">
+    <p class="line">That belief sits at the heart of Upside MS.</p>
+    <p class="line">For generations, disability has been understood primarily through the body. We have measured what a person can reach, how far they can walk, how long they can stand, what they can see, hear or process. When the world becomes difficult to navigate, we have been remarkably comfortable locating the problem in the person navigating it.</p>
+  </section>
+
+  <div class="held"><p>Look again.</p></div>
+
+  <section class="read">
+    <p class="line">A flight of stairs is not a problem for everyone. Neither is a narrow doorway, an inaccessible trail, a badly designed website, a kilometre between an event and its pickup point, or a system that requires someone to ask for special treatment simply to participate.</p>
+    <p class="line dim">The body matters. Of course it does.</p>
+    <p class="line">But so does everything we build around it.</p>
+    <p class="line">Human beings change. Our environments should be capable of changing with us.</p>
+    <p class="line">Disability is not an edge case in the human experience. Bodies age. Mobility changes. Illness arrives. Accidents happen. Energy fluctuates. The circumstances of our lives change, sometimes gradually and sometimes in an afternoon.</p>
+    <p class="line">A society designed around one narrow idea of physical ability will eventually exclude almost everyone.</p>
+  </section>
+
+  <div class="held"><p class="glass">We can do better.</p></div>
+
+  <section class="read">
+    <p class="line">Upside MS began with multiple sclerosis because that is where we learned to see the problem clearly. Living with changes in mobility reveals things about the built world that can otherwise remain invisible. A small distance becomes significant. A missing bench changes a decision. A curb changes a route. An inaccessible entrance changes whether you enter at all.</p>
+    <p class="line">Once you see those barriers, it becomes difficult to accept them as inevitable.</p>
+  </section>
+
+  <div class="held"><p>They are not inevitable.</p></div>
+
+  <section class="stanza">
+    <p class="line">Someone made a decision.</p>
+    <p class="line">Someone can make a better one.</p>
+  </section>
+
+  <section class="read">
+    <p class="line">That is why our work extends beyond any single diagnosis.</p>
+    <p class="line">We care about trails and parks because nature belongs to everyone.</p>
+    <p class="line">We care about public spaces because public life belongs to everyone.</p>
+    <p class="line">We care about design, transportation, technology, policy and culture because each of them determines, in ways large and small, who gets to participate.</p>
+    <p class="line">And participation is ultimately what this is about.</p>
+  </section>
+
+  <div class="held"><p class="glass">Access is only the beginning.</p></div>
+
+  <section class="read">
+    <p class="line">A ramp is useful because of where it allows someone to go.</p>
+    <p class="line">An accessible trail matters because of the morning someone gets to spend beside the ocean.</p>
+    <p class="line">Good transportation matters because people should be able to arrive and leave on their own terms.</p>
+    <p class="line">Accessible technology matters because information, work and community increasingly live inside it.</p>
+    <p class="line">The measure of accessibility is not the accommodation itself.</p>
+    <p class="line">It is what becomes possible because the accommodation is no longer necessary.</p>
+  </section>
+
+  <section class="read">
+    <p class="line">We want people to participate without having to explain themselves first.</p>
+    <p class="line">To make plans without conducting a feasibility study.</p>
+    <p class="line">To arrive without rehearsing contingencies.</p>
+    <p class="line">To contribute without being treated as remarkable for having made it into the room.</p>
+    <p class="line">To experience the ordinary freedom of changing their mind.</p>
+  </section>
+
+  <div class="held"><p>That is the standard.</p></div>
+
+  <section class="read">
+    <p class="line">There is enormous human potential sitting behind barriers that never needed to exist.</p>
+    <p class="line">Human potential is distributed far more equally than access.</p>
+    <p class="line">We intend to change that.</p>
+    <p class="line dim">Not by asking people to become better at overcoming barriers.</p>
+    <p class="line">By removing the barriers.</p>
+    <p class="line dim">Not someday, when accessibility becomes convenient.</p>
+    <p class="line">Now.</p>
+  </section>
+
+  <section class="stanza">
+    <p class="line">Place by place.</p>
+    <p class="line">Path by path.</p>
+    <p class="line">Decision by decision.</p>
+  </section>
+
+  <section class="read">
+    <p class="line">Until accessibility stops being something added for a few people and becomes something expected for all of us.</p>
+  </section>
+
+  <!-- CLOSE -->
+  <section class="close">
+    <p class="big">Because a more accessible world is not a concession.<br><em>It is a larger world.</em></p>
+    <div class="sig"><span class="mark">Upside MS Foundation</span></div>
+  </section>
+</main>
+
+<footer><span class="utility">Access is only the beginning</span></footer>
+
+<script>
+  const io=new IntersectionObserver((entries)=>{
+    entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target);} });
+  },{threshold:0.2, rootMargin:'0px 0px -8% 0px'});
+  document.querySelectorAll('.line,.held,.close').forEach(el=>io.observe(el));
+</script>
+</body>
+</html>
