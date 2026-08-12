@@ -34,6 +34,22 @@ export function HeroBaseArt({ className = "" }: Props) {
  */
 const layerViewBox = "-280 -175 1360 850";
 
+/** Soft drifting clouds, high in the sky. Parallax layer, transparent background. */
+export function HeroCloudsArt({ className = "" }: Props) {
+  return (
+    <svg
+      viewBox={layerViewBox}
+      className={className}
+      preserveAspectRatio="xMidYMid slice"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <ellipse cx="120" cy="95" rx="95" ry="24" fill={oceanBand} opacity="0.5" />
+      <ellipse cx="420" cy="75" rx="115" ry="26" fill={oceanBand} opacity="0.38" />
+      <ellipse cx="690" cy="110" rx="85" ry="22" fill={oceanBand} opacity="0.45" />
+    </svg>
+  );
+}
+
 /** Sun disc, low in the sky. Parallax layer, transparent background. */
 export function HeroSunArt({ className = "" }: Props) {
   return (

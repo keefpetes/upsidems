@@ -19,11 +19,15 @@ export default function Parallax({
     }
 
     let frame: number;
+    let current = 0;
+    const ease = 0.08;
 
     const update = () => {
       const node = ref.current;
+      const target = window.scrollY * speed;
+      current += (target - current) * ease;
       if (node) {
-        node.style.transform = `translate3d(0, ${window.scrollY * speed}px, 0)`;
+        node.style.transform = `translate3d(0, ${current}px, 0)`;
       }
       frame = requestAnimationFrame(update);
     };

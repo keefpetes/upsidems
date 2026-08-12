@@ -1,5 +1,6 @@
 import Parallax from "@/components/Parallax";
 import PlaceholderMedia from "@/components/PlaceholderMedia";
+import ScrollReveal from "@/components/ScrollReveal";
 import { BeachPathwayArt, TrailRestArt } from "@/components/illustrations";
 import { caseStudies } from "@/lib/site";
 
@@ -51,26 +52,31 @@ export default function OurWork() {
                 {cs.title}
               </h2>
               <p className="text-sm text-ink/60 mb-5">{cs.location}</p>
-              <div className="space-y-4 text-sm text-ink/80 leading-relaxed">
-                <p>
-                  <span className="font-semibold text-forest">
-                    The problem —{" "}
-                  </span>
-                  {cs.problem}
-                </p>
-                <p>
-                  <span className="font-semibold text-forest">
-                    The response —{" "}
-                  </span>
-                  {cs.response}
-                </p>
-                <p>
-                  <span className="font-semibold text-forest">
-                    The outcome —{" "}
-                  </span>
-                  {cs.outcome}
-                </p>
-              </div>
+              <ScrollReveal>
+                <div
+                  data-scroll-reveal
+                  className="space-y-4 text-sm text-ink/80 leading-relaxed"
+                >
+                  <p>
+                    <span className="font-semibold text-forest">
+                      The problem —{" "}
+                    </span>
+                    {cs.problem}
+                  </p>
+                  <p>
+                    <span className="font-semibold text-forest">
+                      The response —{" "}
+                    </span>
+                    {cs.response}
+                  </p>
+                  <p>
+                    <span className="font-semibold text-forest">
+                      The outcome —{" "}
+                    </span>
+                    {cs.outcome}
+                  </p>
+                </div>
+              </ScrollReveal>
             </div>
           </article>
         ))}

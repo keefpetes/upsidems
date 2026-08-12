@@ -1,9 +1,11 @@
 import Link from "next/link";
 import Parallax from "@/components/Parallax";
 import PlaceholderMedia from "@/components/PlaceholderMedia";
+import ScrollReveal from "@/components/ScrollReveal";
 import { BeachPathwayArt, StoryMarkArt } from "@/components/illustrations";
 import {
   HeroBaseArt,
+  HeroCloudsArt,
   HeroForegroundArt,
   HeroMountainsArt,
   HeroSunArt,
@@ -40,6 +42,12 @@ export default function Home() {
           art={
             <>
               <HeroBaseArt className="absolute inset-0 w-full h-full" />
+              <Parallax
+                speed={0.08}
+                className="absolute -inset-x-[35%] -top-[35%] h-[170%] will-change-transform"
+              >
+                <HeroCloudsArt className="w-full h-full" />
+              </Parallax>
               <Parallax
                 speed={0.15}
                 className="absolute -inset-x-[35%] -top-[35%] h-[170%] will-change-transform"
@@ -95,30 +103,38 @@ export default function Home() {
 
       {/* Mission line */}
       <section className="mx-auto max-w-4xl px-6 pt-20 pb-4 text-center">
-        <p className="font-display text-2xl md:text-3xl leading-snug text-forest">
-          We close the accessibility gap in natural spaces, so people with MS
-          and other mobility challenges can reach them. Participation is the
-          point.
-        </p>
+        <ScrollReveal>
+          <p
+            data-scroll-reveal
+            className="font-display text-2xl md:text-3xl leading-snug text-forest"
+          >
+            We close the accessibility gap in natural spaces, so people with
+            MS and other mobility challenges can reach them. Participation is
+            the point.
+          </p>
+        </ScrollReveal>
       </section>
 
       {/* What we do */}
       <section className="mx-auto max-w-6xl px-6 py-16">
-        <div className="grid md:grid-cols-3 gap-8">
-          {whatWeDo.map((item) => (
-            <div
-              key={item.title}
-              className="rounded-2xl bg-white/50 border border-ink/10 p-8"
-            >
-              <h3 className="font-display text-xl text-rust mb-3">
-                {item.title}
-              </h3>
-              <p className="text-sm leading-relaxed text-ink/80">
-                {item.body}
-              </p>
-            </div>
-          ))}
-        </div>
+        <ScrollReveal>
+          <div className="grid md:grid-cols-3 gap-8">
+            {whatWeDo.map((item) => (
+              <div
+                key={item.title}
+                data-scroll-reveal
+                className="rounded-2xl bg-white/50 border border-ink/10 p-8"
+              >
+                <h3 className="font-display text-xl text-rust mb-3">
+                  {item.title}
+                </h3>
+                <p className="text-sm leading-relaxed text-ink/80">
+                  {item.body}
+                </p>
+              </div>
+            ))}
+          </div>
+        </ScrollReveal>
       </section>
 
       {/* Proof strip */}
@@ -151,24 +167,26 @@ export default function Home() {
           <Parallax speed={0.15} className="will-change-transform">
             <PlaceholderMedia label={`Illustration — ${featured.title}`} art={<BeachPathwayArt className="w-full h-full" />} />
           </Parallax>
-          <div>
-            <span className="text-xs uppercase tracking-wide text-rust">
-              Featured work
-            </span>
-            <h2 className="font-display text-3xl mt-2 mb-4 text-ink">
-              {featured.title}
-            </h2>
-            <p className="text-sm text-ink/70 mb-2">{featured.location}</p>
-            <p className="text-sm leading-relaxed text-ink/80 mb-6">
-              {featured.response}
-            </p>
-            <Link
-              href="/our-work"
-              className="text-sm text-forest underline underline-offset-4 hover:text-forest-dark"
-            >
-              See all our work →
-            </Link>
-          </div>
+          <ScrollReveal>
+            <div data-scroll-reveal>
+              <span className="text-xs uppercase tracking-wide text-rust">
+                Featured work
+              </span>
+              <h2 className="font-display text-3xl mt-2 mb-4 text-ink">
+                {featured.title}
+              </h2>
+              <p className="text-sm text-ink/70 mb-2">{featured.location}</p>
+              <p className="text-sm leading-relaxed text-ink/80 mb-6">
+                {featured.response}
+              </p>
+              <Link
+                href="/our-work"
+                className="text-sm text-forest underline underline-offset-4 hover:text-forest-dark"
+              >
+                See all our work →
+              </Link>
+            </div>
+          </ScrollReveal>
         </div>
       </section>
 
@@ -184,22 +202,25 @@ export default function Home() {
               with people and institutions who want to solve it.
             </p>
           </div>
-          <div className="grid sm:grid-cols-2 gap-6">
-            {paths.map((path) => (
-              <Link
-                key={path.slug}
-                href={`/get-involved#${path.slug}`}
-                className="block rounded-2xl bg-cream border border-ink/10 p-7 hover:border-forest transition-colors"
-              >
-                <h3 className="font-display text-xl text-forest mb-2">
-                  {path.title}
-                </h3>
-                <p className="text-sm text-ink/75 leading-relaxed">
-                  {path.summary}
-                </p>
-              </Link>
-            ))}
-          </div>
+          <ScrollReveal>
+            <div className="grid sm:grid-cols-2 gap-6">
+              {paths.map((path) => (
+                <Link
+                  key={path.slug}
+                  href={`/get-involved#${path.slug}`}
+                  data-scroll-reveal
+                  className="block rounded-2xl bg-cream border border-ink/10 p-7 hover:border-forest transition-colors"
+                >
+                  <h3 className="font-display text-xl text-forest mb-2">
+                    {path.title}
+                  </h3>
+                  <p className="text-sm text-ink/75 leading-relaxed">
+                    {path.summary}
+                  </p>
+                </Link>
+              ))}
+            </div>
+          </ScrollReveal>
         </div>
       </section>
 
@@ -214,27 +235,30 @@ export default function Home() {
             All stories →
           </Link>
         </div>
-        <div className="grid md:grid-cols-2 gap-8">
-          {stories.map((story) => (
-            <Link
-              key={story.slug}
-              href={`/stories/${story.slug}`}
-              className="group"
-            >
-              <PlaceholderMedia
-                label="Story image placeholder"
-                aspect="aspect-[16/9]"
-                art={<StoryMarkArt className="w-full h-full" tone={story.slug === "so-it-looks-like-ms" ? "rust" : "forest"} />}
-              />
-              <p className="text-xs text-ink/50 mt-4">
-                {story.author} · {story.date}
-              </p>
-              <h3 className="font-display text-xl mt-1 group-hover:text-forest transition-colors">
-                {story.title}
-              </h3>
-            </Link>
-          ))}
-        </div>
+        <ScrollReveal>
+          <div className="grid md:grid-cols-2 gap-8">
+            {stories.map((story) => (
+              <Link
+                key={story.slug}
+                href={`/stories/${story.slug}`}
+                data-scroll-reveal
+                className="group"
+              >
+                <PlaceholderMedia
+                  label="Story image placeholder"
+                  aspect="aspect-[16/9]"
+                  art={<StoryMarkArt className="w-full h-full" tone={story.slug === "so-it-looks-like-ms" ? "rust" : "forest"} />}
+                />
+                <p className="text-xs text-ink/50 mt-4">
+                  {story.author} · {story.date}
+                </p>
+                <h3 className="font-display text-xl mt-1 group-hover:text-forest transition-colors">
+                  {story.title}
+                </h3>
+              </Link>
+            ))}
+          </div>
+        </ScrollReveal>
       </section>
 
       {/* Manifesto link */}

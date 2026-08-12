@@ -1,3 +1,4 @@
+import ScrollReveal from "@/components/ScrollReveal";
 import { contactEmail, paths } from "@/lib/site";
 
 export default function GetInvolved() {
@@ -15,33 +16,36 @@ export default function GetInvolved() {
         different ways to work with us.
       </p>
 
-      <div className="space-y-14">
-        {paths.map((path) => (
-          <div
-            key={path.slug}
-            id={path.slug}
-            className="scroll-mt-28 border-t border-ink/10 pt-10"
-          >
-            <h2 className="font-display text-2xl text-forest mb-3">
-              {path.title}
-            </h2>
-            <p className="text-ink/80 leading-relaxed mb-2 max-w-2xl">
-              {path.summary}
-            </p>
-            <p className="text-ink/80 leading-relaxed mb-6 max-w-2xl">
-              {path.detail}
-            </p>
-            <a
-              href={`mailto:${contactEmail}?subject=${encodeURIComponent(
-                `${path.title} — Get Involved`
-              )}`}
-              className="inline-block rounded-full bg-forest text-cream px-6 py-3 text-sm hover:bg-forest-dark transition-colors"
+      <ScrollReveal>
+        <div className="space-y-14">
+          {paths.map((path) => (
+            <div
+              key={path.slug}
+              id={path.slug}
+              data-scroll-reveal
+              className="scroll-mt-28 border-t border-ink/10 pt-10"
             >
-              {path.cta}
-            </a>
-          </div>
-        ))}
-      </div>
+              <h2 className="font-display text-2xl text-forest mb-3">
+                {path.title}
+              </h2>
+              <p className="text-ink/80 leading-relaxed mb-2 max-w-2xl">
+                {path.summary}
+              </p>
+              <p className="text-ink/80 leading-relaxed mb-6 max-w-2xl">
+                {path.detail}
+              </p>
+              <a
+                href={`mailto:${contactEmail}?subject=${encodeURIComponent(
+                  `${path.title} — Get Involved`
+                )}`}
+                className="inline-block rounded-full bg-forest text-cream px-6 py-3 text-sm hover:bg-forest-dark transition-colors"
+              >
+                {path.cta}
+              </a>
+            </div>
+          ))}
+        </div>
+      </ScrollReveal>
     </div>
   );
 }
