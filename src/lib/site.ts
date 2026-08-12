@@ -106,7 +106,7 @@ export const stories: Story[] = [
     slug: "so-it-looks-like-ms",
     title: "“So it looks like MS.”",
     author: "Keith Peterson",
-    date: "2019-05-28",
+    date: "2025-04-15",
     excerpt:
       "When you are first told, “You have multiple sclerosis,” it doesn't just land softly. It hits hard. It lingers. One minute, you're sitting in a quiet medical office. The next, your life has been split into two parts. Before and after…",
   },
