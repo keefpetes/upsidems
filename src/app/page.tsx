@@ -18,11 +18,11 @@ const whatWeDo = [
   },
   {
     title: "Advocacy and consultation",
-    body: "We work with municipalities and institutions to treat access as infrastructure, not an afterthought.",
+    body: "We work with municipalities and institutions to treat access as infrastructure. It belongs in the plan from the start.",
   },
   {
     title: "Design observations and case studies",
-    body: "We document what we learn on real sites, so better decisions get made the next time.",
+    body: "We document what we find on real sites and share it in plain terms, so better decisions get made next time.",
   },
 ];
 
