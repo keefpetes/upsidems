@@ -140,15 +140,12 @@ export default function Home() {
       {/* Proof strip */}
       <section className="bg-forest text-cream">
         <div className="mx-auto max-w-6xl px-6 py-14">
-          <p className="text-xs uppercase tracking-wide text-cream/50 mb-6 text-center">
-            The work, measured.
-          </p>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
             {[
-              ["#", "installations completed"],
-              ["#", "communities served"],
-              ["#", "civic partners"],
-              ["#", "people reached"],
+              ["10.6%", "of Canadians aged 15+ live with a mobility disability"],
+              ["3.1 million", "people in Canada that represents"],
+              ["1 in 4", "Canadians aged 65+ live with a mobility disability"],
+              ["75%", "of those needing therapy care report an unmet need"],
             ].map(([stat, label]) => (
               <div key={label}>
                 <div className="font-display text-4xl mb-1">{stat}</div>
@@ -158,6 +155,9 @@ export default function Home() {
               </div>
             ))}
           </div>
+          <p className="mt-8 text-xs text-cream/40 text-center">
+            Source: Statistics Canada, Canadian Survey on Disability, 2022.
+          </p>
         </div>
       </section>
 
