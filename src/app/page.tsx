@@ -14,15 +14,15 @@ import { caseStudies, paths, stories } from "@/lib/site";
 const whatWeDo = [
   {
     title: "Accessibility installations",
-    body: "Designing and supporting physical pathways that enable meaningful access to natural spaces.",
+    body: "We design and build stable pathways that let people of all mobility levels reach natural spaces safely.",
   },
   {
     title: "Advocacy and consultation",
-    body: "Working with municipalities, organizations, and institutions to address accessibility as infrastructure rather than an afterthought.",
+    body: "We work with municipalities and institutions to treat access as infrastructure, not an afterthought.",
   },
   {
     title: "Design observations and case studies",
-    body: "Sharing practical insights and frameworks that reframe disability and access through clarity instead of sentiment.",
+    body: "We document what we learn on real sites, so better decisions get made the next time.",
   },
 ];
 
@@ -96,9 +96,9 @@ export default function Home() {
       {/* Mission line */}
       <section className="mx-auto max-w-4xl px-6 pt-20 pb-4 text-center">
         <p className="font-display text-2xl md:text-3xl leading-snug text-forest">
-          Upside MS closes the accessibility gap in natural spaces —
-          restoring the right to move, breathe, and heal for people with MS
-          and other mobility challenges across Canada.
+          We close the accessibility gap in natural spaces, so people with MS
+          and other mobility challenges can reach them. Participation is the
+          point.
         </p>
       </section>
 
@@ -125,7 +125,7 @@ export default function Home() {
       <section className="bg-forest text-cream">
         <div className="mx-auto max-w-6xl px-6 py-14">
           <p className="text-xs uppercase tracking-wide text-cream/50 mb-6 text-center">
-            Placeholder — swap in real figures and partner logos before launch
+            The work, measured.
           </p>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
             {[
@@ -180,8 +180,8 @@ export default function Home() {
               Four ways to work with us
             </h2>
             <p className="text-sm text-ink/70">
-              Upside MS works with people and institutions who understand
-              that accessibility is a design issue, not a personal one.
+              Accessibility is a design problem, not a personal one. We work
+              with people and institutions who want to solve it.
             </p>
           </div>
           <div className="grid sm:grid-cols-2 gap-6">
@@ -235,6 +235,16 @@ export default function Home() {
             </Link>
           ))}
         </div>
+      </section>
+
+      {/* Manifesto link */}
+      <section className="mx-auto max-w-6xl px-6 pb-4 text-center">
+        <Link
+          href="/manifesto"
+          className="text-sm text-ink/50 underline underline-offset-4 hover:text-ink/80"
+        >
+          Read the manifesto
+        </Link>
       </section>
 
       {/* Contact strip */}
