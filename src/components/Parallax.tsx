@@ -24,9 +24,12 @@ export default function Parallax({
 
     const update = () => {
       const node = ref.current;
-      const target = window.scrollY * speed;
-      current += (target - current) * ease;
       if (node) {
+        const rect = node.getBoundingClientRect();
+        const elementCenter = rect.top + rect.height / 2;
+        const viewportCenter = window.innerHeight / 2;
+        const target = (viewportCenter - elementCenter) * speed;
+        current += (target - current) * ease;
         node.style.transform = `translate3d(0, ${current}px, 0)`;
       }
       frame = requestAnimationFrame(update);

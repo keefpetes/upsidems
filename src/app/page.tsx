@@ -2,6 +2,7 @@ import Link from "next/link";
 import Parallax from "@/components/Parallax";
 import PlaceholderMedia from "@/components/PlaceholderMedia";
 import ScrollReveal from "@/components/ScrollReveal";
+import StatCounter from "@/components/StatCounter";
 import { BeachPathwayArt, StoryMarkArt } from "@/components/illustrations";
 import {
   HeroBaseArt,
@@ -141,15 +142,40 @@ export default function Home() {
         <div className="mx-auto max-w-6xl px-6 py-14">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
             {[
-              ["10.6%", "of Canadians aged 15+ live with a mobility disability"],
-              ["3.1 million", "people in Canada that represents"],
-              ["1 in 4", "Canadians aged 65+ live with a mobility disability"],
-              ["1 in 400", "Canadians live with MS"],
-            ].map(([stat, label]) => (
-              <div key={label}>
-                <div className="font-display text-4xl mb-1">{stat}</div>
+              {
+                value: 10.6,
+                decimals: 1,
+                suffix: "%",
+                label: "of Canadians aged 15+ live with a mobility disability",
+              },
+              {
+                value: 3.1,
+                decimals: 1,
+                suffix: " million",
+                label: "people in Canada that represents",
+              },
+              {
+                value: 4,
+                prefix: "1 in ",
+                label: "Canadians aged 65+ live with a mobility disability",
+              },
+              {
+                value: 400,
+                prefix: "1 in ",
+                label: "Canadians live with MS",
+              },
+            ].map((s) => (
+              <div key={s.label}>
+                <div className="font-display text-4xl mb-1">
+                  <StatCounter
+                    value={s.value}
+                    decimals={s.decimals}
+                    prefix={s.prefix}
+                    suffix={s.suffix}
+                  />
+                </div>
                 <div className="text-xs uppercase tracking-wide text-cream/60">
-                  {label}
+                  {s.label}
                 </div>
               </div>
             ))}
