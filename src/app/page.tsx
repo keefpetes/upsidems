@@ -145,7 +145,7 @@ export default function Home() {
               ["10.6%", "of Canadians aged 15+ live with a mobility disability"],
               ["3.1 million", "people in Canada that represents"],
               ["1 in 4", "Canadians aged 65+ live with a mobility disability"],
-              ["75%", "of those needing therapy care report an unmet need"],
+              ["1 in 400", "Canadians live with MS"],
             ].map(([stat, label]) => (
               <div key={label}>
                 <div className="font-display text-4xl mb-1">{stat}</div>
@@ -156,7 +156,8 @@ export default function Home() {
             ))}
           </div>
           <p className="mt-8 text-xs text-cream/40 text-center">
-            Source: Statistics Canada, Canadian Survey on Disability, 2022.
+            Sources: Statistics Canada, Canadian Survey on Disability, 2022;
+            MS Canada.
           </p>
         </div>
       </section>
