@@ -56,7 +56,7 @@ export function BeachPathwayArt({ className = "" }: Props) {
       })}
       {/* access marker at the head of the path */}
       <g transform="translate(400 245)">
-        <circle r="11" fill={rust} />
+        <circle r="11" fill={forestDark} />
         <circle r="11" fill="none" stroke={cream} strokeWidth="2" />
       </g>
     </svg>
