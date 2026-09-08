@@ -8,6 +8,7 @@ export const nav = [
 
 export const contactEmail = "hello@upsidems.org";
 export const location = "Vancouver, BC";
+export const baseUrl = "https://www.upsidems.org";
 
 export const paths = [
   {
