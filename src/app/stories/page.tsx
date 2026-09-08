@@ -28,7 +28,7 @@ export default function Stories() {
               data-scroll-reveal
               className="group"
             >
-              <PlaceholderMedia label="Story image placeholder" aspect="aspect-[16/9]" art={<StoryMarkArt className="w-full h-full" tone={story.slug === "so-it-looks-like-ms" ? "rust" : "forest"} />} />
+              <PlaceholderMedia aspect="aspect-[16/9]" art={<StoryMarkArt className="w-full h-full" tone={story.slug === "so-it-looks-like-ms" ? "rust" : "forest"} />} />
               <p className="text-xs text-ink/50 mt-4">
                 {story.author} · {story.date}
               </p>

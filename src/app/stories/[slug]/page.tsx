@@ -34,7 +34,7 @@ export default async function StoryPage({
         {story.title}
       </h1>
       <Parallax speed={0.12} className="mb-10 will-change-transform">
-        <PlaceholderMedia label="Story image placeholder" aspect="aspect-[16/9]" art={<StoryMarkArt className="w-full h-full" tone={story.slug === "so-it-looks-like-ms" ? "rust" : "forest"} />} />
+        <PlaceholderMedia aspect="aspect-[16/9]" art={<StoryMarkArt className="w-full h-full" tone={story.slug === "so-it-looks-like-ms" ? "rust" : "forest"} />} />
       </Parallax>
       <ScrollReveal>
         <p data-scroll-reveal className="text-lg leading-relaxed text-ink/85 font-display">

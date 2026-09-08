@@ -30,7 +30,7 @@ export default function About() {
 
       <Parallax speed={0.12} className="mb-14">
         <PlaceholderMedia
-          label="Illustration placeholder — swap for real site photo"
+          label="How an accessible pathway is built, layer by layer"
           aspect="aspect-[16/9]"
           art={<CrossSectionArt className="w-full h-full" />}
         />
@@ -129,7 +129,7 @@ export default function About() {
           Placeholder
         </p>
         <p className="text-sm text-ink/70 leading-relaxed">
-          Add a short founder's note here connecting your own MS diagnosis to
+          Add a short founder&apos;s note here connecting your own MS diagnosis to
           why Upside MS exists — one or two paragraphs, first person. It
           gives About a face, not just a framework.
         </p>

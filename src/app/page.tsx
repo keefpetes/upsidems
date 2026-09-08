@@ -36,7 +36,6 @@ export default function Home() {
       {/* Hero */}
       <section className="relative overflow-hidden">
         <PlaceholderMedia
-          label="Illustration placeholder — swap for real installation photo"
           aspect="aspect-[16/10] md:aspect-[21/9]"
           className="rounded-none border-0"
           art={
@@ -246,7 +245,6 @@ export default function Home() {
                 className="group"
               >
                 <PlaceholderMedia
-                  label="Story image placeholder"
                   aspect="aspect-[16/9]"
                   art={<StoryMarkArt className="w-full h-full" tone={story.slug === "so-it-looks-like-ms" ? "rust" : "forest"} />}
                 />

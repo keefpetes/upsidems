@@ -20,14 +20,15 @@ export default function OurWork() {
         rather than the person.
       </p>
 
-      <div className="mb-14 rounded-2xl border border-dashed border-rust/40 bg-rust/5 p-6">
-        <p className="text-xs uppercase tracking-wide text-rust mb-2">
-          Placeholder page
+      <div className="mb-14 rounded-2xl border border-forest/20 bg-forest/5 p-6">
+        <p className="text-xs uppercase tracking-wide text-forest mb-2">
+          Where we&apos;re starting
         </p>
         <p className="text-sm text-ink/70 leading-relaxed">
-          The two case studies below are sample content, structured the way
-          real projects should be documented. Replace the details, photos,
-          and outcomes with your actual installations before launch.
+          We haven&apos;t broken ground yet. The two concepts below are the
+          model we want to build and fund first — real barriers we&apos;ve
+          identified, and the kind of intervention we&apos;d pilot with a
+          site partner.
         </p>
       </div>
 
@@ -43,9 +44,9 @@ export default function OurWork() {
               </Parallax>
             </div>
             <div>
-              {cs.sample && (
+              {cs.concept && (
                 <span className="inline-block text-[10px] uppercase tracking-wide bg-rust/10 text-rust rounded-full px-3 py-1 mb-3">
-                  Sample content
+                  Concept — not yet built
                 </span>
               )}
               <h2 className="font-display text-2xl text-ink mb-1">

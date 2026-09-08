@@ -52,7 +52,7 @@ export type CaseStudy = {
   slug: string;
   title: string;
   location: string;
-  sample: boolean;
+  concept: boolean;
   problem: string;
   response: string;
   outcome: string;
@@ -60,28 +60,28 @@ export type CaseStudy = {
 
 export const caseStudies: CaseStudy[] = [
   {
-    slug: "sample-beach-pathway",
+    slug: "concept-beach-pathway",
     title: "Beach Access Pathway",
-    location: "Pacific coast, BC — sample content",
-    sample: true,
+    location: "Pacific coast, BC",
+    concept: true,
     problem:
-      "Placeholder: describe the specific access barrier at this site — e.g., loose sand and no stable surface between the parking area and the shoreline.",
+      "Popular beach access points along BC's coast typically end at loose sand or a steep dune stair — passable on foot, but not for wheels, canes, or anyone managing fatigue or an unsteady gait. The beach is visible from the parking lot and unreachable anyway.",
     response:
-      "Placeholder: describe the design response — e.g., a stable, durable matting pathway sized for wheels, canes, and unsteady gaits, plus shaded rest points.",
+      "A stable, low-maintenance boardwalk pathway sized for wheelchairs, walkers, and strollers, running from the parking area to the tideline, with a shaded rest point partway down for anyone who needs to stop.",
     outcome:
-      "Placeholder: describe the measurable outcome — visits enabled, community response, or plans to replicate the model elsewhere.",
+      "This is the model we want to build first: a route short enough to fund and construct in a single season, designed with the people who'd actually use it, and documented so it can be replicated at other public beaches once proven.",
   },
   {
-    slug: "sample-forest-trail",
+    slug: "concept-forest-trail",
     title: "Forest Trail Rest Points",
-    location: "Regional park — sample content",
-    sample: true,
+    location: "Regional park, BC",
+    concept: true,
     problem:
-      "Placeholder: describe the barrier — e.g., a popular trail with no seating for people managing fatigue or heat sensitivity.",
+      "Many well-used trails have no seating at all, which quietly excludes anyone managing fatigue, heat sensitivity, or a condition like MS that makes distance unpredictable. Without a place to stop, the trail's real accessibility is set by whoever needs to rest soonest.",
     response:
-      "Placeholder: describe the intervention — e.g., shaded seating placed at set intervals in partnership with the park authority.",
+      "Shaded seating placed at set, mapped intervals along an existing trail, planned with the park authority so it fits the terrain and maintenance schedule instead of being an afterthought.",
     outcome:
-      "Placeholder: describe the result and any partner quote.",
+      "The goal is a small, provable pilot with one park partner — intervals close enough that someone managing fatigue can complete the trail in stages, with the model documented so other parks can adopt it without starting from scratch.",
   },
 ];
 
