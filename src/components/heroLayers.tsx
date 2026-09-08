@@ -3,6 +3,7 @@ type Props = { className?: string };
 const forest = "#1F4B43";
 const forestDark = "#16352F";
 const rust = "#B5602A";
+const cream = "#F5F1E8";
 const sky = "#E7EEEA";
 const oceanBand = "#C9DAD3";
 const oceanWave = "#AFC7BE";
@@ -132,7 +133,7 @@ function PineTree({ cx, scale = 1 }: { cx: number; scale?: number }) {
   );
 }
 
-/** Trees and driftwood, establishing the coastal setting. Parallax layer, transparent background. */
+/** Trees, driftwood, and the boardwalk pathway. Parallax layer, transparent background. */
 export function HeroForegroundArt({ className = "" }: Props) {
   return (
     <svg
@@ -149,6 +150,36 @@ export function HeroForegroundArt({ className = "" }: Props) {
       {/* driftwood on the sand */}
       <rect x="90" y="360" width="130" height="15" rx="7" fill={driftwood} opacity="0.55" transform="rotate(-4 90 360)" />
       <rect x="580" y="410" width="150" height="16" rx="8" fill={driftwood} opacity="0.5" transform="rotate(3 580 410)" />
+
+      {/* accessible boardwalk pathway, widening toward the viewer */}
+      <polygon points="378,260 422,260 470,500 330,500" fill={forest} />
+      <polygon
+        points="378,260 422,260 470,500 330,500"
+        fill="none"
+        stroke={forestDark}
+        strokeWidth="3"
+      />
+      {[300, 340, 380, 420, 460].map((y, i) => {
+        const spread = 8 + i * 7;
+        return (
+          <line
+            key={i}
+            x1={400 - spread}
+            y1={y}
+            x2={400 + spread}
+            y2={y}
+            stroke={cream}
+            strokeWidth="3"
+            opacity="0.55"
+          />
+        );
+      })}
+
+      {/* access marker at the head of the path */}
+      <g transform="translate(400 245)">
+        <circle r="11" fill={forestDark} />
+        <circle r="11" fill="none" stroke={cream} strokeWidth="2" />
+      </g>
     </svg>
   );
 }

@@ -7,7 +7,10 @@ const cream = "#F5F1E8";
 const creamDark = "#ECE4D2";
 
 /** Coastal pathway scene — used for the hero and beach case study. */
-export function BeachPathwayArt({ className = "" }: Props) {
+export function BeachPathwayArt({
+  className = "",
+  animated = false,
+}: Props & { animated?: boolean }) {
   return (
     <svg
       viewBox="0 0 800 500"
@@ -15,16 +18,43 @@ export function BeachPathwayArt({ className = "" }: Props) {
       preserveAspectRatio="xMidYMid slice"
       xmlns="http://www.w3.org/2000/svg"
     >
+      {animated && (
+        <style>{`
+          @media (prefers-reduced-motion: no-preference) {
+            .gull { animation: gull-drift 14s ease-in-out infinite; }
+            .gull-2 { animation-delay: -6s; animation-duration: 18s; }
+            .shimmer { animation: shimmer-pulse 5s ease-in-out infinite; }
+            .wanderer { animation: wanderer-roll 12s ease-in-out infinite; }
+            @keyframes gull-drift {
+              0%, 100% { transform: translate(0, 0); }
+              50% { transform: translate(40px, -10px); }
+            }
+            @keyframes shimmer-pulse {
+              0%, 100% { opacity: 0.35; }
+              50% { opacity: 0.75; }
+            }
+            @keyframes wanderer-roll {
+              0% { transform: translateY(0); }
+              50% { transform: translateY(120px); }
+              100% { transform: translateY(0); }
+            }
+          }
+        `}</style>
+      )}
       <rect width="800" height="500" fill={cream} />
       {/* sky */}
       <rect width="800" height="170" fill="#E7EEEA" />
       <circle cx="670" cy="80" r="42" fill={rust} opacity="0.85" />
+      {/* gulls */}
+      <path className="gull" d="M120 60 q10 -10 20 0 q10 -10 20 0" fill="none" stroke={forest} strokeWidth="2.5" opacity="0.5" />
+      <path className="gull gull-2" d="M250 95 q8 -8 16 0 q8 -8 16 0" fill="none" stroke={forest} strokeWidth="2" opacity="0.4" />
       {/* distant hills, low and pushed back */}
       <path d="M0 170 L100 120 L210 170 Z" fill={forest} opacity="0.25" />
       <path d="M520 170 L640 110 L760 170 L800 170 L800 170 Z" fill={forest} opacity="0.2" />
       {/* ocean */}
       <rect y="170" width="800" height="110" fill="#C9DAD3" />
       <path d="M0 195 Q200 178 400 197 T800 190 V200 Q600 216 400 202 T0 210 Z" fill="#AFC7BE" />
+      <path className="shimmer" d="M20 220 Q200 208 380 222 T760 215" fill="none" stroke="#E4D9C0" strokeWidth="2" opacity="0.5" />
       {/* sand */}
       <rect y="280" width="800" height="220" fill="#E4D9C0" />
       <path d="M0 280 Q400 300 800 280 V500 H0 Z" fill={creamDark} />
@@ -54,6 +84,14 @@ export function BeachPathwayArt({ className = "" }: Props) {
           />
         );
       })}
+      {/* someone using the path — the point of the illustration */}
+      <g transform="translate(400 300)">
+        <g className="wanderer">
+          <circle cx="0" cy="18" r="16" fill="none" stroke={cream} strokeWidth="4" />
+          <rect x="-6" y="-14" width="12" height="22" rx="5" fill={cream} />
+          <circle cx="0" cy="-24" r="7" fill={cream} />
+        </g>
+      </g>
       {/* access marker at the head of the path */}
       <g transform="translate(400 245)">
         <circle r="11" fill={forestDark} />

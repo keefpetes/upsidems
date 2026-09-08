@@ -163,9 +163,9 @@ export default function Home() {
 
       {/* Featured case study */}
       <section className="mx-auto max-w-6xl px-6 py-20">
-        <div className="grid md:grid-cols-2 gap-10 items-center">
+        <div className="grid md:grid-cols-2 gap-10 items-start">
           <Parallax speed={0.15} className="will-change-transform">
-            <PlaceholderMedia label={`Illustration — ${featured.title}`} art={<BeachPathwayArt className="w-full h-full" />} />
+            <PlaceholderMedia label={`Illustration — ${featured.title}`} art={<BeachPathwayArt animated className="w-full h-full" />} />
           </Parallax>
           <ScrollReveal>
             <div data-scroll-reveal>
