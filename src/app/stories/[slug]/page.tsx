@@ -40,18 +40,6 @@ export default async function StoryPage({
         <p data-scroll-reveal className="text-lg leading-relaxed text-ink/85 font-display">
           {story.excerpt}
         </p>
-        <div
-          data-scroll-reveal
-          className="mt-10 rounded-2xl border border-dashed border-rust/40 bg-rust/5 p-6"
-        >
-          <p className="text-xs uppercase tracking-wide text-rust mb-2">
-            Placeholder
-          </p>
-          <p className="text-sm text-ink/70 leading-relaxed">
-            Drop in the full essay text here. Only the published excerpt was
-            carried over from the current site.
-          </p>
-        </div>
       </ScrollReveal>
     </div>
   );

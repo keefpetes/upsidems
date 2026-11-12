@@ -124,16 +124,6 @@ export default function About() {
         </div>
       </ScrollReveal>
 
-      <div className="mt-10 rounded-2xl border border-dashed border-rust/40 bg-rust/5 p-6">
-        <p className="text-xs uppercase tracking-wide text-rust mb-2">
-          Placeholder
-        </p>
-        <p className="text-sm text-ink/70 leading-relaxed">
-          Add a short founder&apos;s note here connecting your own MS diagnosis to
-          why Upside MS exists — one or two paragraphs, first person. It
-          gives About a face, not just a framework.
-        </p>
-      </div>
 
       <h2 className="font-display text-2xl mt-16 mb-6 text-forest">
         What We Do
