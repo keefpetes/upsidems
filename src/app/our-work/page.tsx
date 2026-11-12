@@ -13,24 +13,12 @@ export default function OurWork() {
       <h1 className="font-display text-4xl md:text-5xl mt-3 mb-6 text-ink">
         Resilience Design, on the ground.
       </h1>
-      <p className="text-ink/80 leading-relaxed max-w-2xl mb-6">
+      <p className="text-ink/80 leading-relaxed max-w-2xl mb-14">
         Every installation starts with the same question: where does this
         space break down for people managing fatigue, heat sensitivity, or
         variable mobility — and what does the environment need to change,
         rather than the person.
       </p>
-
-      <div className="mb-14 rounded-2xl border border-forest/20 bg-forest/5 p-6">
-        <p className="text-xs uppercase tracking-wide text-forest mb-2">
-          Where we&apos;re starting
-        </p>
-        <p className="text-sm text-ink/70 leading-relaxed">
-          We haven&apos;t broken ground yet. The two concepts below are the
-          model we want to build and fund first — real barriers we&apos;ve
-          identified, and the kind of intervention we&apos;d pilot with a
-          site partner.
-        </p>
-      </div>
 
       <div className="space-y-20">
         {caseStudies.map((cs, i) => (
