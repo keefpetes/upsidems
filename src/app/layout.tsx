@@ -10,6 +10,21 @@ export const metadata: Metadata = {
   title: "Upside MS Foundation",
   description:
     "Upside MS exists to close the accessibility gap in natural spaces, restoring the right to move, breathe, and heal for people with MS and other mobility challenges in Canada.",
+  openGraph: {
+    type: "website",
+    locale: "en_CA",
+    url: "/",
+    siteName: "Upside MS Foundation",
+    title: "Upside MS Foundation — Access is only the beginning.",
+    description:
+      "The limits we attribute to people often belong to the environment around them.",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Upside MS Foundation — Access is only the beginning.",
+    description:
+      "The limits we attribute to people often belong to the environment around them.",
+  },
 };
 
 export default function RootLayout({

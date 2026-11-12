@@ -101,7 +101,7 @@ export const stories: Story[] = [
     author: "KP",
     date: "2025-07-15",
     excerpt:
-      "It took me nine years to believe that. For almost a decade, I lived with my diagnosis like it was a secret I had to protect. Not because I was ashamed of the condition itself, but because…",
+      "It took me nine years to believe that. For almost a decade, I lived with my diagnosis like it was a secret I had to protect.",
   },
   {
     slug: "so-it-looks-like-ms",
@@ -109,6 +109,6 @@ export const stories: Story[] = [
     author: "KP",
     date: "2025-04-15",
     excerpt:
-      "When you are first told, “You have multiple sclerosis,” it doesn't just land softly. It hits hard. It lingers. One minute, you're sitting in a quiet medical office. The next, your life has been split into two parts. Before and after…",
+      "When you are first told, “You have multiple sclerosis,” it doesn't just land softly. It hits hard. It lingers. One minute, you're sitting in a quiet medical office. The next, your life has been split into two parts. Before and after.",
   },
 ];
