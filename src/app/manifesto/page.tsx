@@ -12,15 +12,15 @@ export const metadata: Metadata = {
     type: "article",
     url: "/manifesto",
     siteName: "Upside MS Foundation",
-    title: "We can do better. — The Upside Manifesto",
+    title: "The Upside Manifesto — Upside MS Foundation",
     description:
-      "The limits we attribute to people often belong to the environment around them.",
+      "Because a more accessible world is not a concession. It is a larger world.",
   },
   twitter: {
     card: "summary_large_image",
-    title: "We can do better. — The Upside Manifesto",
+    title: "The Upside Manifesto — Upside MS Foundation",
     description:
-      "The limits we attribute to people often belong to the environment around them.",
+      "Because a more accessible world is not a concession. It is a larger world.",
   },
 };
 

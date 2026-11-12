@@ -1,7 +1,8 @@
 import { ImageResponse } from "next/og";
 
 // Link-preview card for /manifesto, in the manifesto page's own palette.
-export const alt = "We can do better. — The Upside Manifesto";
+export const alt =
+  "Because a more accessible world is not a concession. It is a larger world. — The Upside Manifesto";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
@@ -40,8 +41,24 @@ export default function ManifestoOpengraphImage() {
         >
           The Upside Manifesto
         </div>
-        <div style={{ display: "flex", marginTop: 40, fontSize: 112, lineHeight: 1 }}>
-          We can do better.
+        <div
+          style={{
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
+            marginTop: 40,
+            fontSize: 60,
+            lineHeight: 1.2,
+            textAlign: "center",
+          }}
+        >
+          <div style={{ display: "flex" }}>
+            Because a more accessible world
+          </div>
+          <div style={{ display: "flex" }}>is not a concession.</div>
+          <div style={{ display: "flex", marginTop: 28, fontSize: 84 }}>
+            It is a larger world.
+          </div>
         </div>
         <div
           style={{
