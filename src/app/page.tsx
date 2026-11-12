@@ -275,7 +275,7 @@ export default function Home() {
                   art={<StoryMarkArt className="w-full h-full" tone={story.slug === "so-it-looks-like-ms" ? "rust" : "forest"} />}
                 />
                 <p className="text-xs text-ink/50 mt-4">
-                  {story.author} · {story.date}
+                  {story.date}
                 </p>
                 <h3 className="font-display text-xl mt-1 group-hover:text-forest transition-colors">
                   {story.title}

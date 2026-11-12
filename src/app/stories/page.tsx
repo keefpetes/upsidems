@@ -30,7 +30,7 @@ export default function Stories() {
             >
               <PlaceholderMedia aspect="aspect-[16/9]" art={<StoryMarkArt className="w-full h-full" tone={story.slug === "so-it-looks-like-ms" ? "rust" : "forest"} />} />
               <p className="text-xs text-ink/50 mt-4">
-                {story.author} · {story.date}
+                {story.date}
               </p>
               <h2 className="font-display text-2xl mt-1 mb-2 group-hover:text-forest transition-colors">
                 {story.title}

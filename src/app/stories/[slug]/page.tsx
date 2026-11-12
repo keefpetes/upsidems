@@ -28,7 +28,7 @@ export default async function StoryPage({
         ← All stories
       </Link>
       <p className="text-xs text-ink/50 mt-8">
-        {story.author} · {story.date}
+        {story.date}
       </p>
       <h1 className="font-display text-4xl md:text-5xl mt-2 mb-8 text-ink">
         {story.title}
@@ -39,6 +39,9 @@ export default async function StoryPage({
       <ScrollReveal>
         <p data-scroll-reveal className="text-lg leading-relaxed text-ink/85 font-display">
           {story.excerpt}
+        </p>
+        <p data-scroll-reveal className="mt-8 font-display text-lg text-ink/70">
+          — {story.author}
         </p>
       </ScrollReveal>
     </div>
