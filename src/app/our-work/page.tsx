@@ -32,11 +32,6 @@ export default function OurWork() {
               </Parallax>
             </div>
             <div>
-              {cs.concept && (
-                <span className="inline-block text-[10px] uppercase tracking-wide bg-rust/10 text-rust rounded-full px-3 py-1 mb-3">
-                  Concept — not yet built
-                </span>
-              )}
               <h2 className="font-display text-2xl text-ink mb-1">
                 {cs.title}
               </h2>
