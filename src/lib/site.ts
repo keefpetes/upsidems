@@ -75,7 +75,7 @@ export const caseStudies: CaseStudy[] = [
   {
     slug: "concept-forest-trail",
     title: "Forest Trail Rest Points",
-    location: "Regional park, BC",
+    location: "Regional parks, BC",
     concept: true,
     problem:
       "Many well-used trails have no seating at all, which quietly excludes anyone managing fatigue, heat sensitivity, or a condition like MS that makes distance unpredictable. Without a place to stop, the trail's real accessibility is set by whoever needs to rest soonest.",
