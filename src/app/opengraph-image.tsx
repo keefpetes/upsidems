@@ -45,7 +45,7 @@ export default function OpengraphImage() {
         <div
           style={{
             position: "absolute",
-            left: 0,
+            left: 820,
             right: 0,
             top: 300,
             bottom: 0,
@@ -54,20 +54,20 @@ export default function OpengraphImage() {
         />
         {/* Wave lines */}
         <svg
-          width="1200"
-          height="200"
-          viewBox="0 0 1200 200"
-          style={{ position: "absolute", left: 0, top: 290 }}
+          width="380"
+          height="120"
+          viewBox="0 0 380 120"
+          style={{ position: "absolute", left: 820, top: 290 }}
         >
           <path
-            d="M0 20 Q 75 0 150 20 T 300 20 T 450 20 T 600 20 T 750 20 T 900 20 T 1050 20 T 1200 20"
+            d="M0 20 Q 47.5 0 95 20 T 190 20 T 285 20 T 380 20"
             stroke={cream}
             strokeOpacity="0.35"
             strokeWidth="3"
             fill="none"
           />
           <path
-            d="M600 60 Q 675 40 750 60 T 900 60 T 1050 60 T 1200 60"
+            d="M95 60 Q 142.5 40 190 60 T 285 60 T 380 60"
             stroke={cream}
             strokeOpacity="0.2"
             strokeWidth="3"
