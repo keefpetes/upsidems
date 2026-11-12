@@ -65,6 +65,29 @@ export default function OurWork() {
           </article>
         ))}
       </div>
+
+      <section className="mt-24 border-t border-ink/10 pt-14">
+        <ScrollReveal>
+          <div data-scroll-reveal className="max-w-2xl">
+            <h2 className="font-display text-3xl text-forest mb-5">
+              Measuring what changes
+            </h2>
+            <p className="text-ink/80 leading-relaxed mb-4">
+              Every installation we build is designed to prove its own case.
+              Discreet sensors will record how a pathway or rest point is
+              actually used — how often, at what times, through which seasons —
+              without identifying anyone.
+            </p>
+            <p className="text-ink/80 leading-relaxed">
+              We&apos;re developing our own efficacy model to turn that data
+              into a clear measure of impact: whether an installation is
+              opening a space to more people, and which design choices make the
+              difference. Site partners and funders see the evidence, and each
+              new site starts from what the last one taught us.
+            </p>
+          </div>
+        </ScrollReveal>
+      </section>
     </div>
   );
 }
