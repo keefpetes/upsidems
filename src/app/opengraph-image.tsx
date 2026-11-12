@@ -7,9 +7,9 @@ export const alt =
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
-const forest = "#14313d";
+const forest = "#003241";
 const cream = "#f8f1e1";
-const rust = "#e18739";
+const rust = "#f28218";
 
 export default function OpengraphImage() {
   return new ImageResponse(
