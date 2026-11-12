@@ -8,6 +8,20 @@ export const metadata: Metadata = {
   title: "Manifesto — Upside MS Foundation",
   description:
     "The limits we attribute to people often belong to the environment around them. Read the Upside MS manifesto.",
+  openGraph: {
+    type: "article",
+    url: "/manifesto",
+    siteName: "Upside MS Foundation",
+    title: "We can do better. — The Upside Manifesto",
+    description:
+      "The limits we attribute to people often belong to the environment around them.",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "We can do better. — The Upside Manifesto",
+    description:
+      "The limits we attribute to people often belong to the environment around them.",
+  },
 };
 
 const fraunces = Fraunces({
