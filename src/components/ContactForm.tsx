@@ -1,12 +1,23 @@
 "use client";
 
-import { FormEvent, useState } from "react";
+import { FormEvent, useEffect, useRef, useState } from "react";
+import { paths } from "@/lib/site";
 
 type Status = "idle" | "sending" | "sent" | "error";
 
 export default function ContactForm() {
   const [status, setStatus] = useState<Status>("idle");
   const [errorMessage, setErrorMessage] = useState("");
+  const messageRef = useRef<HTMLTextAreaElement>(null);
+
+  // Arriving from a Get Involved button (/contact?topic=<slug>): start the
+  // message with that path so the enquiry is labelled when it lands.
+  useEffect(() => {
+    const slug = new URLSearchParams(window.location.search).get("topic");
+    const path = paths.find((p) => p.slug === slug);
+    const el = messageRef.current;
+    if (path && el && !el.value) el.value = `Re: ${path.title}\n\n`;
+  }, []);
 
   async function handleSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
@@ -85,6 +96,7 @@ export default function ContactForm() {
           Message
         </label>
         <textarea
+          ref={messageRef}
           id="message"
           name="message"
           required

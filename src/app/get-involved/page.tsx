@@ -1,5 +1,5 @@
 import ScrollReveal from "@/components/ScrollReveal";
-import { contactEmail, paths } from "@/lib/site";
+import { paths } from "@/lib/site";
 
 export default function GetInvolved() {
   return (
@@ -35,9 +35,7 @@ export default function GetInvolved() {
                 {path.detail}
               </p>
               <a
-                href={`mailto:${contactEmail}?subject=${encodeURIComponent(
-                  `${path.title} — Get Involved`
-                )}`}
+                href={`/contact?topic=${path.slug}`}
                 className="btn-press inline-block rounded-full bg-forest text-cream px-6 py-3 text-sm hover:bg-forest-dark transition-colors"
               >
                 {path.cta}
