@@ -8,15 +8,15 @@ type Status = "idle" | "sending" | "sent" | "error";
 export default function ContactForm() {
   const [status, setStatus] = useState<Status>("idle");
   const [errorMessage, setErrorMessage] = useState("");
-  const messageRef = useRef<HTMLTextAreaElement>(null);
+  const topicRef = useRef<HTMLSelectElement>(null);
 
-  // Arriving from a Get Involved button (/contact?topic=<slug>): start the
-  // message with that path so the enquiry is labelled when it lands.
+  // Arriving from a Get Involved button (/contact?topic=<slug>): preselect
+  // that path so the visitor sees it and the enquiry arrives labelled.
   useEffect(() => {
     const slug = new URLSearchParams(window.location.search).get("topic");
-    const path = paths.find((p) => p.slug === slug);
-    const el = messageRef.current;
-    if (path && el && !el.value) el.value = `Re: ${path.title}\n\n`;
+    if (topicRef.current && paths.some((p) => p.slug === slug)) {
+      topicRef.current.value = slug as string;
+    }
   }, []);
 
   async function handleSubmit(e: FormEvent<HTMLFormElement>) {
@@ -34,6 +34,7 @@ export default function ContactForm() {
           name: data.get("name"),
           email: data.get("email"),
           message: data.get("message"),
+          topic: data.get("topic"),
         }),
       });
 
@@ -66,6 +67,25 @@ export default function ContactForm() {
   return (
     <form onSubmit={handleSubmit} className="text-left space-y-5">
       <div>
+        <label htmlFor="topic" className="block text-sm text-ink/70 mb-1.5">
+          I&apos;m getting in touch as
+        </label>
+        <select
+          id="topic"
+          name="topic"
+          ref={topicRef}
+          defaultValue="general"
+          className="w-full rounded-xl border border-ink/15 bg-cream px-4 py-3 text-ink focus:outline-none focus:border-forest transition-colors"
+        >
+          <option value="general">General enquiry</option>
+          {paths.map((p) => (
+            <option key={p.slug} value={p.slug}>
+              {p.title}
+            </option>
+          ))}
+        </select>
+      </div>
+      <div>
         <label htmlFor="name" className="block text-sm text-ink/70 mb-1.5">
           Name
         </label>
@@ -96,7 +116,6 @@ export default function ContactForm() {
           Message
         </label>
         <textarea
-          ref={messageRef}
           id="message"
           name="message"
           required

@@ -1,6 +1,6 @@
 import { NextResponse } from "next/server";
 import { Resend } from "resend";
-import { contactEmail } from "@/lib/site";
+import { contactEmail, paths } from "@/lib/site";
 
 const resend = new Resend(process.env.RESEND_API_KEY);
 
@@ -11,6 +11,9 @@ export async function POST(request: Request) {
   const name = typeof body?.name === "string" ? body.name.trim() : "";
   const email = typeof body?.email === "string" ? body.email.trim() : "";
   const message = typeof body?.message === "string" ? body.message.trim() : "";
+  // Only known Get Involved paths are accepted; anything else is "General".
+  const topic =
+    paths.find((p) => p.slug === body?.topic)?.title ?? "General enquiry";
 
   if (!name || !email || !message || !EMAIL_RE.test(email)) {
     return NextResponse.json(
@@ -23,8 +26,8 @@ export async function POST(request: Request) {
     from: `Upside MS Website <contact@${process.env.RESEND_EMAIL_DOMAIN}>`,
     to: [contactEmail],
     replyTo: email,
-    subject: `New contact form message from ${name}`,
-    text: `From: ${name} <${email}>\n\n${message}`,
+    subject: `[${topic}] New message from ${name}`,
+    text: `From: ${name} <${email}>\nTopic: ${topic}\n\n${message}`,
   });
 
   if (error) {
