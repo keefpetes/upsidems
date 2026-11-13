@@ -125,7 +125,7 @@ export const stories: Story[] = [
       "Pretending to be fine when you’re not is its own kind of sickness. It hollows you out. And in that hollowing, something else slipped away: my compassion for others.",
       "When you’re drowning in self-loathing, when you’re convinced your illness makes you less than, it becomes impossible to see clearly. Everyone else’s struggles felt smaller than mine. Their complaints felt trivial. I had become so consumed with my own unworthiness that I couldn’t hold space for anyone else’s pain.",
       "## The Slow Unlearning",
-      "Healing didn’t begin with a positive MRI. It began with fatigue, all-consuming sinking into your bones, both from illness, exacerbated by pretending.",
+      "Healing didn’t begin with a clean MRI. It began with fatigue. The all-consuming kind that sinks into your bones, from the illness itself and made worse by pretending.",
       "I started to notice how much energy I was burning trying to appear untouched by my condition. How I held my tongue in conversations about health. How I braced my body against vulnerability.",
       "I let myself stop performing. Stop posturing. Stop editing my experience for other people’s comfort.",
       "I started being nicer to myself in small ways. Like, instead of calling myself pathetic for needing a nap, I’d just… take the nap. Revolutionary stuff, I know.",
