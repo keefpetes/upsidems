@@ -11,7 +11,10 @@ export const metadata: Metadata = {
     default: "Upside MS Foundation — Access is only the beginning.",
     template: "%s · Upside MS",
   },
-  alternates: { canonical: "/" },
+  alternates: {
+    canonical: "/",
+    types: { "application/rss+xml": [{ url: "/feed.xml", title: "Upside MS · Stories" }] },
+  },
   description:
     "Upside MS exists to close the accessibility gap in natural spaces, restoring the right to move, breathe, and heal for people with MS and other mobility challenges in Canada.",
   openGraph: {

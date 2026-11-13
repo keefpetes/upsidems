@@ -24,7 +24,10 @@ export function pageMetadata({
   return {
     title,
     description,
-    alternates: { canonical: path },
+    alternates: {
+      canonical: path,
+      types: { "application/rss+xml": [{ url: "/feed.xml", title: "Upside MS · Stories" }] },
+    },
     openGraph: {
       type,
       locale: "en_CA",
