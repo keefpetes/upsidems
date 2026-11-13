@@ -236,9 +236,9 @@ export const stories: Story[] = [
     ],
     image: {
       src: "/stories/looks-like-ms.jpg",
-      alt: "Two small evergreen islands in a misty bay, with gentle waves on the beach",
-      credit: "Lesly Derksen",
-      creditUrl: "https://unsplash.com/photos/islands-with-evergreen-trees-in-bay-xYtCNwssGpo",
+      alt: "A doctor in a white coat frowns at a sheet of paper, holding up two fingers, against a red wall",
+      credit: "Fotos",
+      creditUrl: "https://unsplash.com/photos/a-doctor-holding-a-clipboard-heA9sNqsR7Y",
     },
   },
 ];
