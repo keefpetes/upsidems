@@ -157,9 +157,9 @@ export const stories: Story[] = [
     ],
     image: {
       src: "/stories/whole.jpg",
-      alt: "A man sits alone on a bench on a grassy hilltop, looking out over a city at sunset",
-      credit: "Gantas Vaičiulėnas",
-      creditUrl: "https://unsplash.com/photos/man-in-black-long-sleeve-shirt-sitting-on-brown-wooden-bench-looking-at-city-during-daytime-2zr_4MWdrMw",
+      alt: "A man in a white T-shirt sits on a wooden bench, looking out over sunlit green hills and tall grass",
+      credit: "Daniel Newman",
+      creditUrl: "https://unsplash.com/photos/a-man-sitting-on-a-bench-in-a-field-VkPAYNSTN3A",
     },
   },
   {
