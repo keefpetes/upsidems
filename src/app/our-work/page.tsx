@@ -190,7 +190,15 @@ export default function OurWork() {
             <p className="text-ink/80 leading-relaxed">
               The result is a clear measure of impact: whether a space is
               genuinely opening up to more people, and which design choices
-              make the difference. Site partners and funders see the evidence.
+              make the difference.
+            </p>
+            <p className="text-ink/80 leading-relaxed mt-4">
+              For our government and civic partners, that evidence becomes a
+              success story they can stand behind. Instead of a ribbon-cutting
+              photo, a municipality or park authority can show residents,
+              council, and funders what actually changed, backed by numbers
+              rather than anecdotes, in council reports, grant renewals, and
+              accessibility plans.
             </p>
           </div>
         </ScrollReveal>
