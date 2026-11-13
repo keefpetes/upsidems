@@ -93,6 +93,20 @@ export default async function StoryPage({
             {story.footnote}
           </p>
         )}
+        <aside data-scroll-reveal className="mt-12 rounded-2xl border border-ink/10 bg-cream-dark/60 px-6 py-6 md:px-8">
+          <p className="font-display text-lg text-forest leading-snug">
+            Upside MS exists because the barriers in this story aren&apos;t only
+            in the body.
+          </p>
+          <div className="mt-4 flex flex-wrap gap-x-6 gap-y-2 text-sm">
+            <Link href="/our-work" className="text-forest underline underline-offset-4 hover:text-forest-dark">
+              See our work →
+            </Link>
+            <Link href="/get-involved" className="text-forest underline underline-offset-4 hover:text-forest-dark">
+              Get involved →
+            </Link>
+          </div>
+        </aside>
       </ScrollReveal>
     </div>
   );

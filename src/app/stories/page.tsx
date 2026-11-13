@@ -22,9 +22,9 @@ export default function Stories() {
         Observations from the field
       </h1>
       <p className="font-display italic text-forest text-lg max-w-2xl mb-6 leading-relaxed">
-        These pieces trace where lived constraints meet the built
-        environment. They surface access failure as design problems, not
-        personal shortcomings. This is Resilience Design.
+        Life with MS, from the inside. These stories are about what it takes
+        to keep moving, and why the world around us matters as much as the
+        body we live in.
       </p>
       <a
         href="/feed.xml"
