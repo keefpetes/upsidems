@@ -151,7 +151,7 @@ export const stories: Story[] = [
       "You can show up exactly as you are: messy, figuring it out, whole.",
       "Your symptoms don’t disqualify you from joy. Your bad days don’t cancel out your good ones. Your need for rest doesn’t make you lazy. Your pain doesn’t make you weak.",
       "Your life isn’t on pause. It’s already unfolding. And you are already enough.",
-      "I’m supposed to say I’ve learned to love myself exactly as I am. And most days, sure. But last week I caught myself googling “MS breakthrough 2025” at 2am again, so clearly I’m still working on it.",
+      "I’m supposed to say I’ve learned to love myself exactly as I am. And most days, sure. But last week I caught myself googling “MS breakthrough 2027” at 2am again, so clearly I’m still working on it.",
       "You’re here. Whether you’re living with chronic illness, supporting someone who is, or just tired of pretending everything’s fine when it’s not — you’re reading about this instead of looking away. That’s actually a pretty big deal. Especially when it’s hard.",
       "You don’t need to be cured to be worthy. You don’t need to raise your baseline to deserve love. You’re already whole, and not because you’ve overcome your struggles, but because you’ve learned to live fully with them. And in that living, I found what I never expected: I actually give a damn about people in ways I didn’t before. I can see what matters and what’s just noise. And somehow, I’m grateful for things that used to be invisible.",
     ],
