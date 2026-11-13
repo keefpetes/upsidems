@@ -32,6 +32,21 @@ const measureLayers = [
   },
 ];
 
+const modelTraits = [
+  {
+    term: "Spatiotemporal",
+    body: "It reads how use moves across a site and shifts through the day and the seasons, separating lasting change from noise.",
+  },
+  {
+    term: "Hierarchical",
+    body: "Every site is modelled on its own and as part of the whole, so a new installation borrows strength from everything we’ve already learned, even before it has much data of its own.",
+  },
+  {
+    term: "Causal by design",
+    body: "Each site is compared with itself before we built, and with similar places we haven’t touched, so we can show the installation made the difference, not the weather or a busy summer.",
+  },
+];
+
 /** Small mark that grows with each layer: a dot, a path, an area, a mesh. */
 function LayerMark({ step }: { step: number }) {
   return (
@@ -156,12 +171,26 @@ export default function OurWork() {
               </li>
             ))}
           </ol>
+          <div data-scroll-reveal className="max-w-2xl mt-12">
+            <p className="text-ink/80 leading-relaxed">
+              Counts on their own prove very little. The efficacy model
+              we&apos;re building reads across all four layers, and it&apos;s
+              designed to work three ways at once.
+            </p>
+          </div>
+          <dl data-scroll-reveal className="mt-8 grid md:grid-cols-3 gap-8 max-w-5xl">
+            {modelTraits.map((t) => (
+              <div key={t.term} className="border-l-2 border-rust pl-5">
+                <dt className="font-display text-lg text-forest mb-2">{t.term}</dt>
+                <dd className="text-sm text-ink/75 leading-relaxed">{t.body}</dd>
+              </div>
+            ))}
+          </dl>
           <div data-scroll-reveal className="max-w-2xl mt-10">
             <p className="text-ink/80 leading-relaxed">
-              Counts on their own prove very little. Our efficacy model reads
-              across all four layers to show whether a space is genuinely
-              opening up to more people, and which design choices make the
-              difference. Site partners and funders see the evidence.
+              The result is a clear measure of impact: whether a space is
+              genuinely opening up to more people, and which design choices
+              make the difference. Site partners and funders see the evidence.
             </p>
           </div>
         </ScrollReveal>
