@@ -1,9 +1,8 @@
 import Link from "next/link";
+import StoryImage from "@/components/StoryImage";
 import { notFound } from "next/navigation";
 import Parallax from "@/components/Parallax";
-import PlaceholderMedia from "@/components/PlaceholderMedia";
 import ScrollReveal from "@/components/ScrollReveal";
-import { StoryMarkArt } from "@/components/illustrations";
 import { stories } from "@/lib/site";
 
 export function generateStaticParams() {
@@ -34,7 +33,14 @@ export default async function StoryPage({
         {story.title}
       </h1>
       <Parallax speed={0.12} className="mb-10 will-change-transform">
-        <PlaceholderMedia aspect="aspect-[16/9]" art={<StoryMarkArt className="w-full h-full" tone={story.slug === "so-it-looks-like-ms" ? "rust" : "forest"} />} />
+        <StoryImage story={story} sizes="(min-width: 768px) 720px, 100vw" preload />
+        <p className="mt-2 text-xs text-ink/40">
+          Photo:{" "}
+          <a href={story.image.creditUrl} className="underline underline-offset-2 hover:text-ink/70" target="_blank" rel="noopener noreferrer">
+            {story.image.credit}
+          </a>{" "}
+          / Unsplash
+        </p>
       </Parallax>
       <ScrollReveal>
         <p data-scroll-reveal className="text-lg leading-relaxed text-ink/85 font-display">

@@ -1,7 +1,6 @@
 import Link from "next/link";
-import PlaceholderMedia from "@/components/PlaceholderMedia";
+import StoryImage from "@/components/StoryImage";
 import ScrollReveal from "@/components/ScrollReveal";
-import { StoryMarkArt } from "@/components/illustrations";
 import { stories } from "@/lib/site";
 
 export default function Stories() {
@@ -28,7 +27,7 @@ export default function Stories() {
               data-scroll-reveal
               className="group"
             >
-              <PlaceholderMedia aspect="aspect-[16/9]" art={<StoryMarkArt className="w-full h-full" tone={story.slug === "so-it-looks-like-ms" ? "rust" : "forest"} />} />
+              <StoryImage story={story} />
               <p className="text-xs text-ink/50 mt-4">
                 {story.date}
               </p>

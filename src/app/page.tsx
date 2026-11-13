@@ -1,9 +1,10 @@
 import Link from "next/link";
+import StoryImage from "@/components/StoryImage";
 import Parallax from "@/components/Parallax";
 import PlaceholderMedia from "@/components/PlaceholderMedia";
 import ScrollReveal from "@/components/ScrollReveal";
 import StatCounter from "@/components/StatCounter";
-import { BeachPathwayArt, StoryMarkArt } from "@/components/illustrations";
+import { BeachPathwayArt } from "@/components/illustrations";
 import {
   HeroBaseArt,
   HeroCloudsArt,
@@ -37,7 +38,7 @@ export default function Home() {
       {/* Hero */}
       <section className="relative overflow-hidden">
         <PlaceholderMedia
-          aspect="aspect-[16/10] md:aspect-[21/9]"
+          aspect="aspect-[16/10] md:aspect-[21/9] md:max-h-[max(22rem,calc(100svh-13rem))]"
           className="rounded-none border-0"
           art={
             <>
@@ -270,10 +271,7 @@ export default function Home() {
                 data-scroll-reveal
                 className="group"
               >
-                <PlaceholderMedia
-                  aspect="aspect-[16/9]"
-                  art={<StoryMarkArt className="w-full h-full" tone={story.slug === "so-it-looks-like-ms" ? "rust" : "forest"} />}
-                />
+                <StoryImage story={story} />
                 <p className="text-xs text-ink/50 mt-4">
                   {story.date}
                 </p>

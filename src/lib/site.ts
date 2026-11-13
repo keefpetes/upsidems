@@ -92,6 +92,7 @@ export type Story = {
   author: string;
   date: string;
   excerpt: string;
+  image: { src: string; alt: string; credit: string; creditUrl: string };
 };
 
 export const stories: Story[] = [
@@ -102,6 +103,12 @@ export const stories: Story[] = [
     date: "2025-07-15",
     excerpt:
       "It took me nine years to believe that. For almost a decade, I lived with my diagnosis like it was a secret I had to protect.",
+    image: {
+      src: "/stories/whole.jpg",
+      alt: "A wooden boardwalk winding through coastal shrubs toward the ocean under a warm evening sky",
+      credit: "Michiel Rozema",
+      creditUrl: "https://unsplash.com/photos/wooden-boardwalk-through-coastal-shrubs-w0cnfu5gdBU",
+    },
   },
   {
     slug: "so-it-looks-like-ms",
@@ -110,5 +117,11 @@ export const stories: Story[] = [
     date: "2025-04-15",
     excerpt:
       "When you are first told, “You have multiple sclerosis,” it doesn't just land softly. It hits hard. It lingers. One minute, you're sitting in a quiet medical office. The next, your life has been split into two parts. Before and after.",
+    image: {
+      src: "/stories/looks-like-ms.jpg",
+      alt: "Two small evergreen islands in a misty bay, with gentle waves on the beach",
+      credit: "Lesly Derksen",
+      creditUrl: "https://unsplash.com/photos/islands-with-evergreen-trees-in-bay-xYtCNwssGpo",
+    },
   },
 ];
