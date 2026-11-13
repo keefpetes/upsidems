@@ -1,5 +1,14 @@
 import ScrollReveal from "@/components/ScrollReveal";
 import { paths } from "@/lib/site";
+import { pageMetadata } from "@/lib/seo";
+
+export const metadata = pageMetadata({
+  title: "Get Involved",
+  description:
+    "Advocate, civic partner, community organization, or corporate partner: four ways to work with Upside MS on accessibility in natural spaces.",
+  path: "/get-involved",
+});
+
 
 export default function GetInvolved() {
   return (

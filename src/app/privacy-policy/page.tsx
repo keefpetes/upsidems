@@ -1,4 +1,13 @@
 import ScrollReveal from "@/components/ScrollReveal";
+import { pageMetadata } from "@/lib/seo";
+
+export const metadata = pageMetadata({
+  title: "Privacy Policy",
+  description:
+    "How Upside MS Foundation collects, uses, and protects your information.",
+  path: "/privacy-policy",
+});
+
 
 export default function PrivacyPolicy() {
   return (

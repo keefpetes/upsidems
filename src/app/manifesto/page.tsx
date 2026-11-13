@@ -5,7 +5,8 @@ import ManifestoReveal from "@/components/ManifestoReveal";
 import styles from "./manifesto.module.css";
 
 export const metadata: Metadata = {
-  title: "Manifesto — Upside MS Foundation",
+  title: { absolute: "The Upside Manifesto — Upside MS Foundation" },
+  alternates: { canonical: "/manifesto" },
   description:
     "The limits we attribute to people often belong to the environment around them. Read the Upside MS manifesto.",
   openGraph: {

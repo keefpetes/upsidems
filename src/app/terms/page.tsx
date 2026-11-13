@@ -1,4 +1,13 @@
 import ScrollReveal from "@/components/ScrollReveal";
+import { pageMetadata } from "@/lib/seo";
+
+export const metadata = pageMetadata({
+  title: "Terms & Conditions",
+  description:
+    "Terms and conditions for using the Upside MS Foundation website.",
+  path: "/terms",
+});
+
 
 export default function Terms() {
   return (

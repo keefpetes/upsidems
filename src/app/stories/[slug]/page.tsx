@@ -1,13 +1,36 @@
+import type { Metadata } from "next";
 import Link from "next/link";
+import { pageMetadata } from "@/lib/seo";
 import StoryImage from "@/components/StoryImage";
 import StoryBody from "@/components/StoryBody";
 import { notFound } from "next/navigation";
 import Parallax from "@/components/Parallax";
 import ScrollReveal from "@/components/ScrollReveal";
-import { stories } from "@/lib/site";
+import { baseUrl, stories } from "@/lib/site";
 
 export function generateStaticParams() {
   return stories.map((s) => ({ slug: s.slug }));
+}
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ slug: string }>;
+}): Promise<Metadata> {
+  const { slug } = await params;
+  const story = stories.find((s) => s.slug === slug);
+  if (!story) return {};
+  const title = story.title.replace(/[“”"]/g, "");
+  return {
+    ...pageMetadata({
+      title,
+      description: story.excerpt,
+      path: `/stories/${story.slug}`,
+      type: "article",
+      images: [{ url: story.image.src, width: 1600, height: 900, alt: story.image.alt }],
+    }),
+    authors: [{ name: "Keith Peterson" }],
+  };
 }
 
 export default async function StoryPage({
@@ -21,6 +44,21 @@ export default async function StoryPage({
 
   return (
     <div className="mx-auto max-w-3xl px-6 py-20">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "BlogPosting",
+            headline: story.title.replace(/[“”"]/g, ""),
+            description: story.excerpt,
+            image: `${baseUrl}${story.image.src}`,
+            author: { "@type": "Person", name: "Keith Peterson" },
+            publisher: { "@type": "NGO", name: "Upside MS Foundation", url: baseUrl, logo: `${baseUrl}/logo.png` },
+            mainEntityOfPage: `${baseUrl}/stories/${story.slug}`,
+          }),
+        }}
+      />
       <Link
         href="/stories"
         className="text-sm text-forest underline underline-offset-4"

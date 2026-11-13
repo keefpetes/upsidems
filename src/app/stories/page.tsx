@@ -2,6 +2,15 @@ import Link from "next/link";
 import StoryImage from "@/components/StoryImage";
 import ScrollReveal from "@/components/ScrollReveal";
 import { stories } from "@/lib/site";
+import { pageMetadata } from "@/lib/seo";
+
+export const metadata = pageMetadata({
+  title: "Stories",
+  description:
+    "Writing from life with MS: where lived constraints meet the built environment, and what it takes to keep moving.",
+  path: "/stories",
+});
+
 
 export default function Stories() {
   return (

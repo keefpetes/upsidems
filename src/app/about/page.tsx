@@ -3,6 +3,15 @@ import Parallax from "@/components/Parallax";
 import PlaceholderMedia from "@/components/PlaceholderMedia";
 import ScrollReveal from "@/components/ScrollReveal";
 import { CrossSectionArt } from "@/components/illustrations";
+import { pageMetadata } from "@/lib/seo";
+
+export const metadata = pageMetadata({
+  title: "About",
+  description:
+    "Upside MS works at the intersection of accessibility, design, and lived experience, focusing on structural barriers rather than personal limitations.",
+  path: "/about",
+});
+
 
 const whatWeDo = [
   {

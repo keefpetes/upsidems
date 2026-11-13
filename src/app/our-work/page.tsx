@@ -3,6 +3,15 @@ import PlaceholderMedia from "@/components/PlaceholderMedia";
 import ScrollReveal from "@/components/ScrollReveal";
 import { BeachPathwayArt, TrailRestArt } from "@/components/illustrations";
 import { caseStudies } from "@/lib/site";
+import { pageMetadata } from "@/lib/seo";
+
+export const metadata = pageMetadata({
+  title: "Our Work",
+  description:
+    "Resilience Design, on the ground: accessible pathways, rest intervals, and design observations that help people with MS and other mobility challenges reach natural spaces.",
+  path: "/our-work",
+});
+
 
 export default function OurWork() {
   return (

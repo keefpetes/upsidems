@@ -7,7 +7,11 @@ import { baseUrl } from "@/lib/site";
 
 export const metadata: Metadata = {
   metadataBase: new URL(baseUrl),
-  title: "Upside MS Foundation",
+  title: {
+    default: "Upside MS Foundation — Access is only the beginning.",
+    template: "%s · Upside MS",
+  },
+  alternates: { canonical: "/" },
   description:
     "Upside MS exists to close the accessibility gap in natural spaces, restoring the right to move, breathe, and heal for people with MS and other mobility challenges in Canada.",
   openGraph: {
@@ -35,6 +39,24 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className="antialiased">
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "NGO",
+              name: "Upside MS Foundation",
+              alternateName: "Upside MS",
+              url: baseUrl,
+              logo: `${baseUrl}/logo.png`,
+              email: "hello@upsidems.org",
+              slogan: "Access is only the beginning.",
+              description:
+                "Upside MS closes the accessibility gap in natural spaces for people with MS and other mobility challenges in Canada.",
+              address: { "@type": "PostalAddress", addressLocality: "Vancouver", addressRegion: "BC", addressCountry: "CA" },
+            }),
+          }}
+        />
         <ActivateTouchStates />
         <Header />
         <main>{children}</main>

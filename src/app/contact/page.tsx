@@ -1,6 +1,15 @@
 import ContactForm from "@/components/ContactForm";
 import ScrollReveal from "@/components/ScrollReveal";
 import { contactEmail, location } from "@/lib/site";
+import { pageMetadata } from "@/lib/seo";
+
+export const metadata = pageMetadata({
+  title: "Contact",
+  description:
+    "Reach out to Upside MS to connect, collaborate, or support the movement. Based in Vancouver, BC.",
+  path: "/contact",
+});
+
 
 export default function Contact() {
   return (
