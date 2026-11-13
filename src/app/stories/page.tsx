@@ -19,12 +19,11 @@ export default function Stories() {
         Stories
       </span>
       <h1 className="font-display text-4xl md:text-5xl mt-3 mb-6 text-ink">
-        Observations from the field
+        From the inside
       </h1>
       <p className="font-display italic text-forest text-lg max-w-2xl mb-6 leading-relaxed">
-        Life with MS, from the inside. These stories are about what it takes
-        to keep moving, and why the world around us matters as much as the
-        body we live in.
+        These stories are about life with MS: what it takes to keep moving,
+        and why the world around us matters as much as the body we live in.
       </p>
       <a
         href="/feed.xml"
