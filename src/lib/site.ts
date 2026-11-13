@@ -157,9 +157,9 @@ export const stories: Story[] = [
     ],
     image: {
       src: "/stories/whole.jpg",
-      alt: "A wooden boardwalk winding through coastal shrubs toward the ocean under a warm evening sky",
-      credit: "Michiel Rozema",
-      creditUrl: "https://unsplash.com/photos/wooden-boardwalk-through-coastal-shrubs-w0cnfu5gdBU",
+      alt: "A man sits alone on a bench on a grassy hilltop, looking out over a city at sunset",
+      credit: "Gantas Vaičiulėnas",
+      creditUrl: "https://unsplash.com/photos/man-in-black-long-sleeve-shirt-sitting-on-brown-wooden-bench-looking-at-city-during-daytime-2zr_4MWdrMw",
     },
   },
   {
