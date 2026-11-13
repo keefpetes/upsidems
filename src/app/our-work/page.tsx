@@ -111,7 +111,10 @@ export default function OurWork() {
               <h2 className="font-display text-2xl text-ink mb-1">
                 {cs.title}
               </h2>
-              <p className="text-sm text-ink/60 mb-5">{cs.location}</p>
+              <p className="text-sm text-ink/60 mb-5">
+                {cs.location}
+                {cs.concept && <span className="ml-2 inline-block align-middle rounded-full border border-rust/40 px-2 py-0.5 text-[11px] uppercase tracking-wide text-rust">Concept</span>}
+              </p>
               <ScrollReveal>
                 <div
                   data-scroll-reveal
@@ -131,7 +134,7 @@ export default function OurWork() {
                   </p>
                   <p>
                     <span className="font-semibold text-forest">
-                      The outcome —{" "}
+                      {cs.concept ? "The goal" : "The outcome"} —{" "}
                     </span>
                     {cs.outcome}
                   </p>

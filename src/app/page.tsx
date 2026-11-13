@@ -161,7 +161,7 @@ export default function Home() {
                 label: "Canadians aged 65+ live with a mobility disability",
               },
               {
-                value: 400,
+                value: 385,
                 prefix: "1 in ",
                 label: "Canadians live with MS",
               },
@@ -197,12 +197,15 @@ export default function Home() {
           <ScrollReveal>
             <div data-scroll-reveal>
               <span className="text-xs uppercase tracking-wide text-rust">
-                Featured work
+                {featured.concept ? "Featured concept" : "Featured work"}
               </span>
               <h2 className="font-display text-3xl mt-2 mb-4 text-ink">
                 {featured.title}
               </h2>
-              <p className="text-sm text-ink/70 mb-2">{featured.location}</p>
+              <p className="text-sm text-ink/70 mb-2">
+                {featured.location}
+                {featured.concept && <span className="ml-2 inline-block align-middle rounded-full border border-rust/40 px-2 py-0.5 text-[11px] uppercase tracking-wide text-rust">Concept</span>}
+              </p>
               <p className="text-sm leading-relaxed text-ink/80 mb-6">
                 {featured.response}
               </p>
