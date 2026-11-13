@@ -28,10 +28,7 @@ export default function Stories() {
               className="group"
             >
               <StoryImage story={story} />
-              <p className="text-xs text-ink/50 mt-4">
-                {story.date}
-              </p>
-              <h2 className="font-display text-2xl mt-1 mb-2 group-hover:text-forest transition-colors">
+              <h2 className="font-display text-2xl mt-4 mb-2 group-hover:text-forest transition-colors">
                 {story.title}
               </h2>
               <p className="text-sm text-ink/70 leading-relaxed">

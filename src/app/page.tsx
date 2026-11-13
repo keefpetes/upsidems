@@ -272,10 +272,7 @@ export default function Home() {
                 className="group"
               >
                 <StoryImage story={story} />
-                <p className="text-xs text-ink/50 mt-4">
-                  {story.date}
-                </p>
-                <h3 className="font-display text-xl mt-1 group-hover:text-forest transition-colors">
+                <h3 className="font-display text-xl mt-4 group-hover:text-forest transition-colors">
                   {story.title}
                 </h3>
               </Link>

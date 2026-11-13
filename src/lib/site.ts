@@ -90,8 +90,14 @@ export type Story = {
   slug: string;
   title: string;
   author: string;
+  /** Not shown on the site; keeps the original publish order. */
   date: string;
   excerpt: string;
+  /** Full post: one string per block ("## " heading, "- " bullet, else paragraph). Falls back to the excerpt. */
+  body?: string[];
+  contentWarning?: string;
+  /** Small italic note after the sign-off. */
+  footnote?: string;
   image: { src: string; alt: string; credit: string; creditUrl: string };
 };
 
@@ -117,6 +123,71 @@ export const stories: Story[] = [
     date: "2025-04-15",
     excerpt:
       "When you are first told, “You have multiple sclerosis,” it doesn't just land softly. It hits hard. It lingers. One minute, you're sitting in a quiet medical office. The next, your life has been split into two parts. Before and after.",
+    contentWarning:
+      "This post discusses the emotional and physical impact of an MS diagnosis and its symptoms, including descriptions of nerve pain and the grief process.",
+    footnote:
+      "This is the first in a series of Upside MS posts written for people navigating life with multiple sclerosis. They explore the realities of living with MS — the challenges, the adaptations, and the ways we move forward together.",
+    body: [
+      "When you are first told, “You have multiple sclerosis,” it doesn’t just land softly. It hits hard. It lingers.",
+      "One minute, you’re sitting in a quiet medical office. The next, your life has been split into two parts. Before and after.",
+      "Your brain scrambles to catch up. You might feel numb, terrified, furious, frozen, or perhaps relieved. You might feel everything at once. You might feel nothing at all.",
+      "And the strange thing is, MS often doesn’t wait for you to process anything before it starts taking up space in your body.",
+      "## The Day My Life Split in Two",
+      "I know this because it happened to me. The same day I was diagnosed, I experienced my first real relapse.",
+      "It was almost immediate. As soon as I left that appointment, my legs went numb.",
+      "Not just tingling or discomfort. Full, deep numbness. It lasted for days.",
+      "It wasn’t just my legs, either. I remember feeling something else, something I had no words for at the time. A strange, sharp ache deep inside my head. Not a typical headache. It felt stabbing, like pressure and static inside my brain itself, flickering in and out.",
+      "Later, I’d learn this was nerve pain. The kind that’s hard to describe, harder to explain, and nearly impossible to ignore when it decides to flare.",
+      "At the time, I didn’t know how stress, trauma, and neurological symptoms could collide like that. I only knew that everything I feared was already happening.",
+      "That experience stays with me. It taught me that MS can be unpredictable and cruel. It also taught me that surviving it isn’t about instant answers. It’s about patience.",
+      "## Give Yourself Permission to Grieve",
+      "There’s no right way to grieve this.",
+      "MS grief is strange. You’re not just mourning what you’ve already lost. You’re mourning what you fear you might lose in the future. You’re mourning the version of yourself that felt invincible.",
+      "Some people cry immediately. Some go numb emotionally, just like their bodies. Some even feel relief because they finally have an answer for years of unexplained symptoms.",
+      "All of it is normal.",
+      "I tried to push through it at first. I thought I had to be tough or positive. It didn’t work. Eventually, I had to sit with it.",
+      "Grief isn’t a weakness. It’s the first step toward living differently.",
+      "## Your Neurologist May Not Be Warm. Forgive Them Anyway.",
+      "Here’s something nobody warns you about: your neurologist might not deliver your diagnosis kindly.",
+      "Mine didn’t.",
+      "I got a short explanation and a few cold words. That was it. No warmth. No acknowledgment of what those words meant for me.",
+      "I walked out of that appointment feeling like I’d just been punched in the stomach.",
+      "Many neurologists are brilliant clinicians but poor communicators. They deal with these conversations all the time. Some grow distant because they think it protects them. Others simply don’t know how to speak like human beings outside of medical terms.",
+      "That doesn’t make it okay. But I learned something important about forgiving them.",
+      "Forgiveness here isn’t about excusing their behaviour. It’s about freeing yourself.",
+      "If you stay angry at the person who delivered your diagnosis, you stay stuck in that room with them. You stay tethered to the worst moment of your life.",
+      "I stayed there too long. When I finally let it go, I realized I wasn’t angry at them anymore. I just needed to reclaim my space.",
+      "And yes, you can always get a new doctor.",
+      "## Your Timeline Is Yours",
+      "Some people start treatment immediately. Others need weeks or months to make a decision.",
+      "Both paths are valid.",
+      "You’ll hear a lot of opinions. Friends, family, strangers online. They will tell you what worked for them or what you “need” to do.",
+      "But MS is personal. Your body, your pace, your choices.",
+      "Take time to learn your options. Ask uncomfortable questions. Pause if you need to.",
+      "You’re not behind just because someone else moved faster.",
+      "## You Will Find People Who Understand",
+      "At first, MS feels isolating. Nobody around you seems to fully get it, no matter how much they love you.",
+      "That changes when you connect with others who live this life too.",
+      "Finding someone who hears you, nods, and says “me too” is one of the most healing experiences in the world.",
+      "When that happens, you realize you aren’t carrying this alone. You aren’t the only one navigating this confusing, exhausting, unfair path.",
+      "Your family, friends, and loved ones may never understand. Some will abandon you. If you accept this, it will make it easier.",
+      "There are people walking and rolling right beside you.",
+      "## You Are Still You",
+      "MS will try to convince you otherwise.",
+      "It will try to take your identity and turn you into only a patient. It will try to shrink your world.",
+      "Don’t let it.",
+      "You’re still the person who laughs loudly. Still the one who loves your music, your books, your favourite places. Still creative, stubborn, curious, hopeful, sarcastic, or however you describe yourself.",
+      "MS doesn’t erase you. It just adds another layer.",
+      "## You’re Already Showing Up for the Hardest Thing",
+      "If you’re reading this right now and going through something similar, I hope you know this isn’t the end of your story. It’s just a complicated new chapter.",
+      "MS is overwhelming, especially at the start. But you’re already surviving it, right now, simply by showing up for yourself.",
+      "You will adapt. You will learn. You will keep moving forward, however slowly that happens.",
+      "You’re not alone in this, even when it feels like you are. There are people out here who know what it’s like to google symptoms at 2am, who understand the weight of pretending you’re fine when you’re not.",
+      "## Helpful Next Steps",
+      "- Bring someone supportive to your next medical appointment.",
+      "- Keep a notebook or app to track your symptoms and emotions.",
+      "- Make space for the parts of your life that have nothing to do with MS.",
+    ],
     image: {
       src: "/stories/looks-like-ms.jpg",
       alt: "Two small evergreen islands in a misty bay, with gentle waves on the beach",
