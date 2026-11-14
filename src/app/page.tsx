@@ -87,13 +87,13 @@ export default function Home() {
             <div className="mt-8 flex flex-wrap gap-4">
               <Link
                 href="/get-involved"
-                className="btn-press rounded-full bg-forest text-cream px-6 py-3 text-sm hover:bg-forest-dark transition-colors"
+                className="btn-press rounded-full bg-forest text-cream px-6 py-3 text-sm hover:bg-rust hover:text-forest focus-visible:bg-rust focus-visible:text-forest transition-colors"
               >
                 Get involved
               </Link>
               <Link
                 href="/our-work"
-                className="btn-press rounded-full border border-ink/20 px-6 py-3 text-sm hover:border-forest hover:text-forest transition-colors"
+                className="btn-press rounded-full border border-ink/20 px-6 py-3 text-sm hover:bg-rust hover:border-rust hover:text-forest focus-visible:bg-rust focus-visible:border-rust focus-visible:text-forest transition-colors"
               >
                 See our work
               </Link>
@@ -239,7 +239,7 @@ export default function Home() {
                   key={path.slug}
                   href={`/get-involved#${path.slug}`}
                   data-scroll-reveal
-                  className="card-lift btn-press block rounded-2xl bg-cream border border-ink/10 p-7 hover:border-forest"
+                  className="card-lift btn-press block rounded-2xl bg-cream border border-ink/10 p-7 hover:border-rust"
                 >
                   <h3 className="font-display text-xl text-forest mb-2">
                     {path.title}
@@ -302,7 +302,7 @@ export default function Home() {
           </h2>
           <Link
             href="/contact"
-            className="btn-press rounded-full bg-cream text-rust px-6 py-3 text-sm whitespace-nowrap hover:bg-white transition-colors"
+            className="btn-press rounded-full bg-cream text-rust px-6 py-3 text-sm whitespace-nowrap hover:bg-forest hover:text-cream focus-visible:bg-forest focus-visible:text-cream transition-colors"
           >
             Get in touch
           </Link>

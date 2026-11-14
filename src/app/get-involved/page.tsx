@@ -45,7 +45,7 @@ export default function GetInvolved() {
               </p>
               <a
                 href={`/contact?topic=${path.slug}`}
-                className="btn-press inline-block rounded-full bg-forest text-cream px-6 py-3 text-sm hover:bg-forest-dark transition-colors"
+                className="btn-press inline-block rounded-full bg-forest text-cream px-6 py-3 text-sm hover:bg-rust hover:text-forest focus-visible:bg-rust focus-visible:text-forest transition-colors"
               >
                 {path.cta}
               </a>

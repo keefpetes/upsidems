@@ -38,7 +38,7 @@ export default function Header() {
         <div className="flex items-center gap-3">
           <Link
             href="/contact"
-            className="btn-press rounded-full bg-forest text-cream text-sm px-5 py-2.5 hover:bg-forest-dark transition-colors"
+            className="btn-press rounded-full bg-forest text-cream text-sm px-5 py-2.5 hover:bg-rust hover:text-forest focus-visible:bg-rust focus-visible:text-forest transition-colors"
           >
             Contact
           </Link>

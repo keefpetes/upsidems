@@ -14,13 +14,13 @@ export default function NotFound() {
       <div className="flex flex-wrap gap-4 justify-center">
         <Link
           href="/"
-          className="btn-press rounded-full bg-forest text-cream px-6 py-3 text-sm hover:bg-forest-dark transition-colors"
+          className="btn-press rounded-full bg-forest text-cream px-6 py-3 text-sm hover:bg-rust hover:text-forest focus-visible:bg-rust focus-visible:text-forest transition-colors"
         >
           Back to home
         </Link>
         <Link
           href="/contact"
-          className="btn-press rounded-full border border-ink/20 px-6 py-3 text-sm hover:border-forest hover:text-forest transition-colors"
+          className="btn-press rounded-full border border-ink/20 px-6 py-3 text-sm hover:bg-rust hover:border-rust hover:text-forest focus-visible:bg-rust focus-visible:border-rust focus-visible:text-forest transition-colors"
         >
           Contact us
         </Link>
