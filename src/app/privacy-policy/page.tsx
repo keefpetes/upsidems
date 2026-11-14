@@ -8,6 +8,16 @@ export const metadata = pageMetadata({
   path: "/privacy-policy",
 });
 
+const h2 = "font-display text-2xl text-forest mb-3";
+const link = "text-forest underline underline-offset-4";
+
+function Email() {
+  return (
+    <a href="mailto:hello@upsidems.org" className={link}>
+      hello@upsidems.org
+    </a>
+  );
+}
 
 export default function PrivacyPolicy() {
   return (
@@ -16,270 +26,192 @@ export default function PrivacyPolicy() {
       <h1 className="font-display text-4xl md:text-5xl mt-3 mb-3 text-ink">
         Privacy Policy
       </h1>
-      <p className="text-sm text-ink/50 mb-14">Effective July 1, 2025</p>
+      <p className="text-sm text-ink/50 mb-14">Effective November 14, 2026</p>
 
       <ScrollReveal>
         <div data-scroll-reveal className="space-y-10 text-ink/80 leading-relaxed">
           <p>
             Upside MS Foundation (&ldquo;Upside MS,&rdquo; &ldquo;we,&rdquo;
-            &ldquo;us,&rdquo; or &ldquo;our&rdquo;) operates the website
-            located at{" "}
-            <a
-              href="https://www.upsidems.org"
-              className="text-forest underline underline-offset-4"
-            >
-              https://www.upsidems.org
+            &ldquo;us,&rdquo; or &ldquo;our&rdquo;) operates{" "}
+            <a href="https://www.upsidems.org" className={link}>
+              upsidems.org
             </a>{" "}
-            (the &ldquo;Site&rdquo;). This Privacy Policy explains how we
-            collect, use, disclose, and protect personal information provided
-            through the Site, along with the choices available to you
-            regarding your information.
+            (the &ldquo;Site&rdquo;). This policy explains what personal
+            information we collect through the Site, why, who handles it on
+            our behalf, and the choices you have. We are based in British
+            Columbia and follow B.C.&rsquo;s <em>Personal Information
+            Protection Act</em> (PIPA).
           </p>
 
           <section>
-            <h2 className="font-display text-2xl text-forest mb-3">
-              Purpose and Scope
-            </h2>
-            <p className="mb-3">This Privacy Policy describes:</p>
+            <h2 className={h2}>The short version</h2>
             <ul className="list-disc pl-5 space-y-1">
-              <li>What information we collect from visitors to the Site</li>
-              <li>How we use and protect that information</li>
-              <li>The choices you have regarding your information</li>
+              <li>We only collect what you choose to send us through the contact form or by email.</li>
+              <li>The Site has no analytics, no tracking, no advertising, and sets no cookies.</li>
+              <li>We use your information to reply to you and nothing else. We never sell it.</li>
+              <li>Some of the services we use store data in the United States (details below).</li>
+              <li>You can ask to see, correct, or delete your information at any time.</li>
             </ul>
           </section>
 
           <section>
-            <h2 className="font-display text-2xl text-forest mb-3">
-              Information We Collect
-            </h2>
-            <p className="mb-4">
-              We collect two types of information from visitors:
-            </p>
-
-            <h3 className="font-semibold text-ink mb-2">
-              1. Personal Information You Voluntarily Provide
-            </h3>
-            <p className="mb-2">
-              This includes information submitted through our contact form,
-              such as:
-            </p>
+            <h2 className={h2}>Information we collect</h2>
+            <h3 className="font-semibold text-ink mb-2">What you send us</h3>
+            <p className="mb-2">When you use our contact form, we receive:</p>
             <ul className="list-disc pl-5 space-y-1 mb-4">
-              <li>Name</li>
-              <li>Email address</li>
-              <li>Telephone number</li>
-              <li>Mailing address</li>
-              <li>
-                Any additional details you choose to share, including
-                sensitive information such as medical details (if
-                voluntarily provided)
-              </li>
+              <li>Your name</li>
+              <li>Your email address</li>
+              <li>The topic you choose</li>
+              <li>Your message, and anything you choose to include in it</li>
             </ul>
             <p className="mb-6">
-              We will only use sensitive information as outlined in this
-              policy.
+              The same applies if you email us directly. Some people choose to
+              tell us about their health, including their MS. You never have to
+              share health information to contact us. If you do, we treat it as
+              sensitive, use it only to respond to you, and do not share it
+              beyond the people at Upside MS who need it to reply.
             </p>
 
-            <h3 className="font-semibold text-ink mb-2">
-              2. Non-Personal Information
-            </h3>
-            <p className="mb-2">
-              We automatically collect certain non-identifying data through
-              your interactions with the Site, including:
-            </p>
-            <ul className="list-disc pl-5 space-y-1 mb-4">
-              <li>Browser type and version</li>
-              <li>Pages visited</li>
-              <li>IP address</li>
-              <li>Date and time of visit</li>
-              <li>Usage patterns</li>
-            </ul>
+            <h3 className="font-semibold text-ink mb-2">Technical information</h3>
             <p>
-              This data is collected via standard analytics tools and is
-              used to improve our Site functionality and user experience.
+              Like every website, our hosting provider automatically handles
+              basic technical details when you visit, such as your IP address,
+              browser type, the page requested, and the time. These are kept in
+              short-lived server logs used only to run and secure the Site. We
+              do not use them to identify or profile visitors.
             </p>
           </section>
 
           <section>
-            <h2 className="font-display text-2xl text-forest mb-3">
-              How We Use Personal Information
-            </h2>
-            <p className="mb-2">We use personal information to:</p>
+            <h2 className={h2}>Cookies and analytics</h2>
+            <p>
+              The Site does not set cookies and does not use analytics,
+              tracking pixels, or advertising tools. If that ever changes, we
+              will update this policy before it does.
+            </p>
+          </section>
+
+          <section>
+            <h2 className={h2}>How we use your information</h2>
             <ul className="list-disc pl-5 space-y-1 mb-4">
-              <li>Respond to your inquiries</li>
-              <li>Fulfill requests or provide updates</li>
-              <li>Support internal record-keeping and administrative purposes</li>
-              <li>Communicate with you if you have requested information</li>
+              <li>To read and reply to your message</li>
+              <li>To follow up on something you asked us to do, such as volunteering or partnering</li>
+              <li>To keep a basic record of our correspondence</li>
             </ul>
+            <p>
+              We will not add you to a mailing list unless you ask us to. We do
+              not sell, rent, or trade personal information.
+            </p>
+          </section>
+
+          <section>
+            <h2 className={h2}>Service providers and storage outside Canada</h2>
             <p className="mb-4">
-              You may opt out of future communications at any time by
-              contacting us at{" "}
-              <a
-                href="mailto:hello@upsidems.org"
-                className="text-forest underline underline-offset-4"
-              >
-                hello@upsidems.org
-              </a>
-              . We will make reasonable efforts to process your request
-              promptly.
+              We rely on a small number of service providers to run the Site and
+              our email. They process information only on our behalf and only as
+              needed to provide their service:
             </p>
-            <p className="mb-4">
-              Please note that, even if we delete or update your information
-              in active systems, backup copies or archived records may still
-              retain such data for legal, compliance, or operational
-              purposes.
-            </p>
-            <p>
-              We do not sell, rent, or share personal information for
-              marketing purposes.
-            </p>
-          </section>
-
-          <section>
-            <h2 className="font-display text-2xl text-forest mb-3">
-              Use of Non-Personal Information
-            </h2>
-            <p className="mb-2">
-              We may use and share aggregated, non-personal information to:
-            </p>
-            <ul className="list-disc pl-5 space-y-1 mb-4">
-              <li>Analyze usage of the Site</li>
-              <li>Improve our services</li>
-              <li>Conduct research or reporting</li>
-            </ul>
-            <p>
-              This data does not personally identify any individual visitor.
-            </p>
-          </section>
-
-          <section>
-            <h2 className="font-display text-2xl text-forest mb-3">
-              Cookies
-            </h2>
-            <p className="mb-2">
-              We may use cookies and similar technologies to:
-            </p>
-            <ul className="list-disc pl-5 space-y-1 mb-4">
-              <li>Enhance your browsing experience</li>
-              <li>Track Site performance</li>
-              <li>Customize your experience</li>
-            </ul>
-            <p>
-              You can control cookie settings through your browser. However,
-              disabling cookies may affect certain features or functionality
-              of the Site.
-            </p>
-          </section>
-
-          <section>
-            <h2 className="font-display text-2xl text-forest mb-3">
-              Third-Party Service Providers
-            </h2>
-            <p>
-              We may share personal information with trusted third-party
-              service providers who assist us in operating the Site and
-              delivering services. These providers are only permitted to use
-              personal information as necessary to provide contracted
-              services.
-            </p>
-          </section>
-
-          <section>
-            <h2 className="font-display text-2xl text-forest mb-3">
-              Security
-            </h2>
-            <p>
-              We take reasonable steps to safeguard your personal
-              information. However, no method of data transmission or
-              storage over the internet is entirely secure. While we strive
-              to protect your information, we cannot guarantee its absolute
-              security.
-            </p>
-          </section>
-
-          <section>
-            <h2 className="font-display text-2xl text-forest mb-3">
-              Children&rsquo;s Privacy
-            </h2>
-            <p>
-              Our Site is not intended for children under the age of 13. We
-              do not knowingly collect personal information from minors. If
-              we discover that we have collected personal information from a
-              child under 13, we will take steps to delete it promptly.
-            </p>
-          </section>
-
-          <section>
-            <h2 className="font-display text-2xl text-forest mb-3">
-              Links to Other Websites
-            </h2>
-            <p>
-              Our Site may contain links to external websites. We are not
-              responsible for the privacy practices or content of any
-              third-party websites. Use of such sites is at your own risk,
-              and we encourage you to review their privacy policies before
-              sharing personal information.
-            </p>
-          </section>
-
-          <section>
-            <h2 className="font-display text-2xl text-forest mb-3">
-              International Users
-            </h2>
-            <p className="mb-4">
-              By using the Site, you consent to the collection, transfer,
-              storage, and processing of your personal information in
-              Canada. Canadian privacy laws may differ from those in your
-              jurisdiction.
-            </p>
-            <p>
-              If you are providing information on behalf of an organization,
-              you are responsible for ensuring that you have obtained any
-              necessary consent from individuals whose personal information
-              is submitted.
-            </p>
-          </section>
-
-          <section>
-            <h2 className="font-display text-2xl text-forest mb-3">
-              Other Disclosures
-            </h2>
-            <p className="mb-2">We may disclose your personal information:</p>
-            <ul className="list-disc pl-5 space-y-1">
-              <li>To comply with legal obligations or lawful requests</li>
-              <li>To protect our rights, safety, or property</li>
-              <li>To cooperate with law enforcement or government authorities</li>
+            <ul className="list-disc pl-5 space-y-2 mb-4">
               <li>
-                As part of a business transfer, merger, or similar
-                transaction involving our organization&rsquo;s assets
+                <strong>Vercel</strong> hosts the Site and processes contact-form
+                submissions.
+              </li>
+              <li>
+                <strong>Resend</strong> delivers contact-form messages to our
+                inbox.
+              </li>
+              <li>
+                <strong>Mailgun</strong> routes email sent to our upsidems.org
+                addresses.
+              </li>
+              <li>
+                <strong>Google Workspace</strong> hosts our email inbox, where
+                your message is stored.
               </li>
             </ul>
-          </section>
-
-          <section>
-            <h2 className="font-display text-2xl text-forest mb-3">
-              Changes to This Privacy Policy
-            </h2>
             <p>
-              We reserve the right to update this Privacy Policy at any
-              time. If material changes are made, we will post a notice on
-              the Site. Your continued use of the Site following such
-              changes constitutes acceptance of the updated policy.
+              These providers may store and process information in the United
+              States or other countries. While it is there, it may be subject to
+              the laws of those countries, including lawful access by their
+              courts or authorities. By contacting us through the Site, you
+              understand that your information may be handled this way. If you
+              have questions about this, contact our Privacy Officer.
             </p>
           </section>
 
           <section>
-            <h2 className="font-display text-2xl text-forest mb-3">
-              Contact Us
-            </h2>
+            <h2 className={h2}>How long we keep it</h2>
             <p>
-              If you have any questions about this Privacy Policy or how
-              your information is handled, please contact us at:{" "}
-              <a
-                href="mailto:hello@upsidems.org"
-                className="text-forest underline underline-offset-4"
-              >
-                hello@upsidems.org
+              We keep correspondence only as long as we need it to respond to
+              you and keep reasonable records, and generally no longer than two
+              years after our last contact with you. You can ask us to delete
+              it sooner.
+            </p>
+          </section>
+
+          <section>
+            <h2 className={h2}>Your rights</h2>
+            <p>
+              You can ask us to show you the personal information we hold about
+              you, correct it, or delete it. Email <Email /> and we will respond
+              within 30 days, as PIPA requires. If you are not satisfied with
+              our response, you can contact the{" "}
+              <a href="https://www.oipc.bc.ca" className={link}>
+                Office of the Information and Privacy Commissioner for British
+                Columbia
               </a>
+              .
+            </p>
+          </section>
+
+          <section>
+            <h2 className={h2}>Security</h2>
+            <p>
+              The Site is served only over encrypted connections (HTTPS), and
+              access to our accounts and inbox is limited to the people who need
+              it. No system is perfectly secure, but we take reasonable steps to
+              protect your information.
+            </p>
+          </section>
+
+          <section>
+            <h2 className={h2}>When we may have to disclose information</h2>
+            <p>
+              We will only share your information beyond our service providers
+              if the law requires it, such as in response to a valid court order.
+            </p>
+          </section>
+
+          <section>
+            <h2 className={h2}>Children</h2>
+            <p>
+              The Site is not directed at children under 13, and we do not
+              knowingly collect their personal information. If we learn that we
+              have, we will delete it.
+            </p>
+          </section>
+
+          <section>
+            <h2 className={h2}>Links to other websites</h2>
+            <p>
+              The Site links to other websites. Their privacy practices are their
+              own, and we encourage you to read their policies.
+            </p>
+          </section>
+
+          <section>
+            <h2 className={h2}>Changes to this policy</h2>
+            <p>
+              If we change how we handle personal information, we will update
+              this page and the date at the top before the change takes effect.
+            </p>
+          </section>
+
+          <section>
+            <h2 className={h2}>Contact our Privacy Officer</h2>
+            <p>
+              Our Executive Director serves as Privacy Officer. For any question
+              or request about your personal information, email <Email />.
             </p>
           </section>
         </div>
