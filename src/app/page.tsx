@@ -239,7 +239,7 @@ export default function Home() {
                   key={path.slug}
                   href={`/get-involved#${path.slug}`}
                   data-scroll-reveal
-                  className="btn-press block rounded-2xl bg-cream border border-ink/10 p-7 hover:border-forest transition-colors"
+                  className="card-lift btn-press block rounded-2xl bg-cream border border-ink/10 p-7 hover:border-forest"
                 >
                   <h3 className="font-display text-xl text-forest mb-2">
                     {path.title}

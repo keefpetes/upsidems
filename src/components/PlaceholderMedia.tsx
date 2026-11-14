@@ -1,4 +1,5 @@
 import { ReactNode } from "react";
+import DrawOnView from "./DrawOnView";
 
 export default function PlaceholderMedia({
   label,
@@ -17,7 +18,7 @@ export default function PlaceholderMedia({
         art ? "" : "placeholder-media"
       } ${className}`}
     >
-      {art && <div className="absolute inset-0">{art}</div>}
+      {art && <DrawOnView className="absolute inset-0">{art}</DrawOnView>}
       {label && (
         <div className="absolute bottom-4 left-4">
           <span className="text-xs uppercase tracking-wide text-forest/70 bg-cream/85 rounded-full px-3 py-1">

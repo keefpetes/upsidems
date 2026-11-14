@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 import ActivateTouchStates from "@/components/ActivateTouchStates";
 import Header from "@/components/Header";
+import TiltCards from "@/components/TiltCards";
 import Footer from "@/components/Footer";
 import { baseUrl } from "@/lib/site";
 
@@ -61,6 +62,7 @@ export default function RootLayout({
           }}
         />
         <ActivateTouchStates />
+        <TiltCards />
         <Header />
         <main>{children}</main>
         <Footer />

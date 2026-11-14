@@ -1,6 +1,9 @@
 import Parallax from "@/components/Parallax";
 import PlaceholderMedia from "@/components/PlaceholderMedia";
 import ScrollReveal from "@/components/ScrollReveal";
+import DrawOnView from "@/components/DrawOnView";
+import MeasureWeave from "@/components/MeasureWeave";
+import { d } from "@/lib/draw";
 import { BeachPathwayArt, TrailRestArt } from "@/components/illustrations";
 import { caseStudies } from "@/lib/site";
 import { pageMetadata } from "@/lib/seo";
@@ -47,36 +50,46 @@ const modelTraits = [
   },
 ];
 
-/** Small mark that grows with each layer: a dot, a path, an area, a mesh. */
+/** Small mark that grows with each layer: a dot, a path, an area, a mesh. Draws itself in. */
 function LayerMark({ step }: { step: number }) {
+  const t = 0.3 + step * 0.25; // cards draw one after another
+  const dot = (cx: number, cy: number, r: number, delay: number) => (
+    <circle className="dp" style={d(t + delay)} cx={cx} cy={cy} r={r} fill="#F28218" stroke="none" />
+  );
   return (
-    <svg viewBox="0 0 48 48" className="h-10 w-10 text-forest" fill="none" stroke="currentColor" strokeWidth="1.6" aria-hidden="true">
-      {step === 0 && <circle cx="24" cy="24" r="5" fill="#F28218" stroke="none" />}
-      {step === 1 && (
-        <>
-          <path d="M6 34 C 18 34, 22 14, 42 14" strokeLinecap="round" />
-          <circle cx="24" cy="24" r="4.5" fill="#F28218" stroke="none" />
-        </>
-      )}
-      {step === 2 && (
-        <>
-          <rect x="6" y="6" width="36" height="36" rx="8" strokeOpacity="0.5" />
-          <path d="M10 34 C 20 34, 24 16, 38 16" strokeLinecap="round" />
-          <circle cx="16" cy="32" r="2.5" fill="#F28218" stroke="none" />
-          <circle cx="25" cy="24" r="2.5" fill="#F28218" stroke="none" />
-          <circle cx="33" cy="18" r="2.5" fill="#F28218" stroke="none" />
-        </>
-      )}
-      {step === 3 && (
-        <>
-          <path d="M6 14 C 18 8, 30 20, 42 14 M6 24 C 18 18, 30 30, 42 24 M6 34 C 18 28, 30 40, 42 34" strokeLinecap="round" />
-          <path d="M14 6 V42 M24 6 V42 M34 6 V42" strokeOpacity="0.35" strokeLinecap="round" />
-          <circle cx="14" cy="13" r="2.2" fill="#F28218" stroke="none" />
-          <circle cx="24" cy="24" r="2.2" fill="#F28218" stroke="none" />
-          <circle cx="34" cy="35" r="2.2" fill="#F28218" stroke="none" />
-        </>
-      )}
-    </svg>
+    <DrawOnView className="h-10 w-10">
+      <svg viewBox="0 0 48 48" className="h-10 w-10 text-forest" fill="none" stroke="currentColor" strokeWidth="1.6" aria-hidden="true">
+        {step === 0 && dot(24, 24, 5, 0)}
+        {step === 1 && (
+          <>
+            <path className="dl" style={d(t)} pathLength="1" d="M6 34 C 18 34, 22 14, 42 14" strokeLinecap="round" />
+            {dot(24, 24, 4.5, 0.6)}
+          </>
+        )}
+        {step === 2 && (
+          <>
+            <rect className="dl" style={d(t)} pathLength="1" x="6" y="6" width="36" height="36" rx="8" strokeOpacity="0.5" />
+            <path className="dl" style={d(t + 0.3)} pathLength="1" d="M10 34 C 20 34, 24 16, 38 16" strokeLinecap="round" />
+            {dot(16, 32, 2.5, 0.8)}
+            {dot(25, 24, 2.5, 0.9)}
+            {dot(33, 18, 2.5, 1.0)}
+          </>
+        )}
+        {step === 3 && (
+          <>
+            {[14, 24, 34].map((y, i) => (
+              <path key={y} className="dl" style={d(t + i * 0.12)} pathLength="1" d={`M6 ${y} C 18 ${y - 6}, 30 ${y + 6}, 42 ${y}`} strokeLinecap="round" />
+            ))}
+            {[14, 24, 34].map((x, i) => (
+              <path key={x} className="dl" style={d(t + 0.4 + i * 0.12)} pathLength="1" d={`M${x} 6 V42`} strokeOpacity="0.35" strokeLinecap="round" />
+            ))}
+            {dot(14, 13, 2.2, 1.0)}
+            {dot(24, 24, 2.2, 1.1)}
+            {dot(34, 35, 2.2, 1.2)}
+          </>
+        )}
+      </svg>
+    </DrawOnView>
   );
 }
 
@@ -162,7 +175,7 @@ export default function OurWork() {
               <li
                 key={layer.title}
                 data-scroll-reveal
-                className="rounded-2xl border border-ink/10 bg-cream/60 p-6"
+                className="card-lift rounded-2xl border border-ink/10 bg-cream/60 p-6"
               >
                 <LayerMark step={i} />
                 <h3 className="font-display text-xl text-ink mt-4 mb-2">
@@ -174,6 +187,7 @@ export default function OurWork() {
               </li>
             ))}
           </ol>
+          <MeasureWeave />
           <div data-scroll-reveal className="max-w-2xl mt-12">
             <p className="text-ink/80 leading-relaxed">
               Counts on their own prove very little. The efficacy model

@@ -11,7 +11,7 @@ export default function StoryImage({
   preload?: boolean;
 }) {
   return (
-    <div className="relative overflow-hidden aspect-[16/9] rounded-2xl border border-forest/15 bg-cream-dark">
+    <div className="card-lift relative overflow-hidden aspect-[16/9] rounded-2xl border border-forest/15 bg-cream-dark">
       <Image
         src={story.image.src}
         alt={story.image.alt}

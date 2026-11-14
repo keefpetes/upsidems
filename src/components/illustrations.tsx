@@ -1,3 +1,5 @@
+import { d } from "@/lib/draw";
+
 type Props = { className?: string };
 
 const forest = "#1F4B43";
@@ -44,27 +46,30 @@ export function BeachPathwayArt({
       <rect width="800" height="500" fill={cream} />
       {/* sky */}
       <rect width="800" height="170" fill="#E7EEEA" />
-      <circle cx="670" cy="80" r="42" fill={rust} opacity="0.85" />
+      <circle className="dp" style={d(0.9)} cx="670" cy="80" r="42" fill={rust} opacity="0.85" />
       {/* gulls */}
-      <path className="gull" d="M120 60 q10 -10 20 0 q10 -10 20 0" fill="none" stroke={forest} strokeWidth="2.5" opacity="0.5" />
-      <path className="gull gull-2" d="M250 95 q8 -8 16 0 q8 -8 16 0" fill="none" stroke={forest} strokeWidth="2" opacity="0.4" />
+      <g className="df" style={d(1.6)}><path className="gull" d="M120 60 q10 -10 20 0 q10 -10 20 0" fill="none" stroke={forest} strokeWidth="2.5" opacity="0.5" />
+      <path className="gull gull-2" d="M250 95 q8 -8 16 0 q8 -8 16 0" fill="none" stroke={forest} strokeWidth="2" opacity="0.4" /></g>
       {/* distant hills, low and pushed back */}
-      <path d="M0 170 L100 120 L210 170 Z" fill={forest} opacity="0.25" />
-      <path d="M520 170 L640 110 L760 170 L800 170 L800 170 Z" fill={forest} opacity="0.2" />
+      <path className="df" style={d(0.1)} d="M0 170 L100 120 L210 170 Z" fill={forest} opacity="0.25" />
+      <path className="df" style={d(0.25)} d="M520 170 L640 110 L760 170 L800 170 L800 170 Z" fill={forest} opacity="0.2" />
       {/* ocean */}
       <rect y="170" width="800" height="110" fill="#C9DAD3" />
-      <path d="M0 195 Q200 178 400 197 T800 190 V200 Q600 216 400 202 T0 210 Z" fill="#AFC7BE" />
-      <path className="shimmer" d="M20 220 Q200 208 380 222 T760 215" fill="none" stroke="#E4D9C0" strokeWidth="2" opacity="0.5" />
+      <path className="dx" style={d(0.3)} d="M0 195 Q200 178 400 197 T800 190 V200 Q600 216 400 202 T0 210 Z" fill="#AFC7BE" />
+      <g className="shimmer"><path className="dl" style={d(0.6)} pathLength="1" d="M20 220 Q200 208 380 222 T760 215" fill="none" stroke="#E4D9C0" strokeWidth="2" opacity="0.5" /></g>
       {/* sand */}
       <rect y="280" width="800" height="220" fill="#E4D9C0" />
       <path d="M0 280 Q400 300 800 280 V500 H0 Z" fill={creamDark} />
       {/* driftwood, placed on the sand */}
-      <rect x="90" y="360" width="130" height="15" rx="7" fill="#8C7355" opacity="0.55" transform="rotate(-4 90 360)" />
-      <rect x="580" y="410" width="150" height="16" rx="8" fill="#8C7355" opacity="0.5" transform="rotate(3 580 410)" />
+      <g className="df" style={d(1.3)}><rect x="90" y="360" width="130" height="15" rx="7" fill="#8C7355" opacity="0.55" transform="rotate(-4 90 360)" /></g>
+      <g className="df" style={d(1.45)}><rect x="580" y="410" width="150" height="16" rx="8" fill="#8C7355" opacity="0.5" transform="rotate(3 580 410)" /></g>
       {/* accessible boardwalk pathway, widening toward the viewer */}
-      <polygon points="378,260 422,260 470,500 330,500" fill={forest} />
+      <polygon className="df" style={d(0.9)} points="378,260 422,260 470,500 330,500" fill={forest} />
       <polygon
         points="378,260 422,260 470,500 330,500"
+        className="dl"
+        style={d(0.4)}
+        pathLength="1"
         fill="none"
         stroke={forestDark}
         strokeWidth="3"
@@ -74,6 +79,8 @@ export function BeachPathwayArt({
         return (
           <line
             key={i}
+            className="dx"
+            style={d(1.3 + (4 - i) * 0.12)}
             x1={400 - spread}
             y1={y}
             x2={400 + spread}
@@ -86,16 +93,20 @@ export function BeachPathwayArt({
       })}
       {/* someone using the path — the point of the illustration */}
       <g transform="translate(400 300)">
+        <g className="dp" style={d(2.1)}>
         <g className="wanderer">
           <circle cx="0" cy="18" r="16" fill="none" stroke={cream} strokeWidth="4" />
           <rect x="-6" y="-14" width="12" height="22" rx="5" fill={cream} />
           <circle cx="0" cy="-24" r="7" fill={cream} />
         </g>
+        </g>
       </g>
       {/* access marker at the head of the path */}
       <g transform="translate(400 245)">
-        <circle r="11" fill={forestDark} />
-        <circle r="11" fill="none" stroke={cream} strokeWidth="2" />
+        <g className="dp" style={d(1.9)}>
+          <circle r="11" fill={forestDark} />
+          <circle r="11" fill="none" stroke={cream} strokeWidth="2" />
+        </g>
       </g>
     </svg>
   );
@@ -125,9 +136,11 @@ export function CrossSectionArt({ className = "" }: Props) {
     >
       <rect width="800" height="450" fill={cream} />
       <g transform="translate(60 15)">
-        {rows.map((layer) => (
+        {rows.map((layer, i) => (
           <rect
             key={layer.label}
+            className="dx"
+            style={d(0.15 + (rows.length - 1 - i) * 0.18)}
             x={0}
             y={layer.y}
             width={520}
@@ -138,18 +151,18 @@ export function CrossSectionArt({ className = "" }: Props) {
         {/* surface texture strokes on top layer */}
         <g stroke={forestDark} strokeWidth="2" opacity="0.25">
           {Array.from({ length: 13 }).map((_, i) => (
-            <line key={i} x1={20 + i * 44} y1={68} x2={8 + i * 44} y2={68} />
+            <line key={i} className="dx" style={d(1.1 + i * 0.04)} x1={8 + i * 44} y1={68} x2={20 + i * 44} y2={68} />
           ))}
         </g>
         {/* dimension bracket */}
         <g stroke={forestDark} strokeWidth="2" opacity="0.55" fill="none">
-          <line x1={-22} y1={40} x2={-22} y2={y} />
+          <line className="dl" style={d(0.2)} pathLength="1" x1={-22} y1={y} x2={-22} y2={40} />
           <line x1={-30} y1={40} x2={-14} y2={40} />
           <line x1={-30} y1={y} x2={-14} y2={y} />
         </g>
         {/* layer divider lines + labels */}
-        {rows.map((layer) => (
-          <g key={layer.label}>
+        {rows.map((layer, i) => (
+          <g key={layer.label} className="df" style={d(0.5 + (rows.length - 1 - i) * 0.18)}>
             <line
               x1={0}
               y1={layer.y}
@@ -194,12 +207,15 @@ export function TrailRestArt({ className = "" }: Props) {
         [700, 80, 65],
         [610, 50, 45],
       ].map(([cx, cy, r], i) => (
-        <circle key={i} cx={cx} cy={cy} r={r} fill={forest} opacity="0.3" />
+        <circle key={i} className="dp" style={d(0.1 + i * 0.15)} cx={cx} cy={cy} r={r} fill={forest} opacity="0.3" />
       ))}
       {/* trail */}
       <path
         d="M-20 500 C 200 420, 260 380, 400 340 C 540 300, 620 260, 820 220"
         fill="none"
+        className="dl"
+        style={d(0.3)}
+        pathLength="1"
         stroke={forest}
         strokeWidth="46"
         opacity="0.18"
@@ -207,19 +223,23 @@ export function TrailRestArt({ className = "" }: Props) {
       <path
         d="M-20 500 C 200 420, 260 380, 400 340 C 540 300, 620 260, 820 220"
         fill="none"
+        className="df"
+        style={d(1.4)}
         stroke={forest}
         strokeWidth="4"
         strokeDasharray="2 14"
       />
       {/* bench / rest point */}
       <g transform="translate(400 300)">
+        <g className="df" style={d(1.6)}>
         <rect x="-40" y="0" width="80" height="10" rx="3" fill={rust} />
         <rect x="-34" y="12" width="8" height="20" fill={forestDark} />
         <rect x="26" y="12" width="8" height="20" fill={forestDark} />
         <rect x="-40" y="-26" width="80" height="8" rx="3" fill={rust} opacity="0.85" />
+        </g>
       </g>
       {/* shade structure */}
-      <path d="M340 260 L460 260 L430 220 L370 220 Z" fill={forestDark} opacity="0.25" />
+      <path className="df" style={d(1.9)} d="M340 260 L460 260 L430 220 L370 220 Z" fill={forestDark} opacity="0.25" />
     </svg>
   );
 }
