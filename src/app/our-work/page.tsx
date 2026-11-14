@@ -46,7 +46,7 @@ const modelTraits = [
   },
   {
     term: "Causal by design",
-    body: "Each site is compared with itself before we built, and with similar places we haven’t touched, so we can show the installation made the difference, not the weather or a busy summer.",
+    body: "Each site is compared with itself before we built, and with similar places we haven’t touched, so we can tell whether the installation made the difference, not the weather or a busy summer.",
   },
 ];
 
