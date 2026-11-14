@@ -35,6 +35,7 @@ export default function ContactForm() {
           email: data.get("email"),
           message: data.get("message"),
           topic: data.get("topic"),
+          company: data.get("company"),
         }),
       });
 
@@ -66,6 +67,11 @@ export default function ContactForm() {
 
   return (
     <form onSubmit={handleSubmit} className="text-left space-y-5">
+      {/* Honeypot: hidden from people and screen readers; bots fill it in. */}
+      <div aria-hidden="true" className="absolute -left-[9999px] h-0 w-0 overflow-hidden">
+        <label htmlFor="company">Company</label>
+        <input id="company" name="company" type="text" tabIndex={-1} autoComplete="off" />
+      </div>
       <div>
         <label htmlFor="topic" className="block text-sm text-ink/70 mb-1.5">
           I&apos;m getting in touch as
@@ -94,6 +100,7 @@ export default function ContactForm() {
           name="name"
           type="text"
           required
+          maxLength={100}
           className="w-full rounded-xl border border-ink/15 bg-cream px-4 py-3 text-ink placeholder:text-ink/40 focus:outline-none focus:border-forest transition-colors"
           placeholder="Your name"
         />
@@ -107,6 +114,7 @@ export default function ContactForm() {
           name="email"
           type="email"
           required
+          maxLength={254}
           className="w-full rounded-xl border border-ink/15 bg-cream px-4 py-3 text-ink placeholder:text-ink/40 focus:outline-none focus:border-forest transition-colors"
           placeholder="you@example.com"
         />
@@ -119,6 +127,7 @@ export default function ContactForm() {
           id="message"
           name="message"
           required
+          maxLength={5000}
           rows={5}
           className="w-full rounded-xl border border-ink/15 bg-cream px-4 py-3 text-ink placeholder:text-ink/40 focus:outline-none focus:border-forest transition-colors resize-none"
           placeholder="How can we help?"
