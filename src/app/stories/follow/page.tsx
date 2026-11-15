@@ -10,12 +10,6 @@ export const metadata = pageMetadata({
 });
 
 const feedUrl = `${baseUrl}/feed.xml`;
-const enc = encodeURIComponent(feedUrl);
-
-const readers = [
-  { name: "Feedly", href: `https://feedly.com/i/subscription/feed/${enc}` },
-  { name: "Inoreader", href: `https://www.inoreader.com/?add_feed=${enc}` },
-];
 
 export default function FollowStories() {
   return (
@@ -34,22 +28,12 @@ export default function FollowStories() {
 
       <CopyField value={feedUrl} />
 
-      <p className="text-sm text-ink/70 leading-relaxed mt-10 mb-4">
-        Don&apos;t have a feed reader? These free ones will add the feed in one click:
+      <p className="text-sm text-ink/70 leading-relaxed mt-6">
+        In your feed reader (Feedly, Inoreader, NetNewsWire, Reeder or any
+        other), choose <span className="font-medium text-ink/80">Add feed</span>{" "}
+        or <span className="font-medium text-ink/80">Follow</span> and paste
+        the address in.
       </p>
-      <div className="flex flex-wrap gap-3">
-        {readers.map((r) => (
-          <a
-            key={r.name}
-            href={r.href}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="btn-press rounded-full border border-ink/20 px-6 py-3 text-sm hover:bg-rust hover:border-rust hover:text-forest focus-visible:bg-rust focus-visible:border-rust focus-visible:text-forest transition-colors"
-          >
-            Follow on {r.name}
-          </a>
-        ))}
-      </div>
     </div>
   );
 }
