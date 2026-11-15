@@ -178,3 +178,62 @@ body {
   from { opacity: 0; transform: translateY(18px); }
   to { opacity: 1; transform: none; }
 }
+
+/* ---------- Living hero (home) ----------
+   hero-in-*  : one-time build-in on load (outer <g>), staggered by --d
+   hero-amb-* : slow ambient loops (inner elements), tuned by --dur/--delay
+   Separate elements so intro and loop transforms never collide. */
+@media (prefers-reduced-motion: no-preference) {
+  .hero-in-fade { animation: hero-fade 1.4s ease-out var(--d, 0s) both; }
+  .hero-in-rise { animation: hero-rise 1.6s cubic-bezier(0.22, 1, 0.36, 1) var(--d, 0s) both; }
+  .hero-in-sun  { animation: hero-sun-rise 2.2s cubic-bezier(0.22, 1, 0.36, 1) 0.2s both; }
+  .hero-in-pop  { transform-box: fill-box; transform-origin: center;
+                  animation: draw-pop 0.8s cubic-bezier(0.34, 1.56, 0.64, 1) 1.8s both; }
+
+  .hero-amb-cloud {
+    animation: hero-drift var(--dur, 45s) ease-in-out var(--delay, 0s) infinite alternate;
+  }
+  .hero-amb-sun, .hero-amb-halo { transform-box: fill-box; transform-origin: center; }
+  .hero-amb-halo { animation: hero-halo 6s ease-in-out 2.4s infinite; }
+  .hero-amb-wave {
+    animation: hero-sway var(--dur, 8s) ease-in-out var(--delay, 0s) infinite alternate;
+  }
+  .hero-amb-tree {
+    transform-box: fill-box;
+    transform-origin: 50% 100%;
+    animation: hero-tree 7s ease-in-out var(--delay, 0s) infinite alternate;
+  }
+  .hero-amb-ping {
+    transform-box: fill-box;
+    transform-origin: center;
+    opacity: 0;
+    animation: pulse-ring 3.2s ease-out 2.8s infinite;
+  }
+
+  /* Our Work fabric card: threads breathe in counter-phase once drawn */
+  [data-drawn] :is(.weave-a, .weave-b, .weave-a-x, .weave-b-x) {
+    animation: weave-y 3.2s ease-in-out 2s infinite alternate;
+  }
+  [data-drawn] .weave-b { animation-direction: alternate-reverse; }
+  [data-drawn] :is(.weave-a-x, .weave-b-x) { animation-name: weave-x; }
+  [data-drawn] .weave-b-x { animation-direction: alternate-reverse; }
+}
+@keyframes hero-fade { from { opacity: 0; } }
+@keyframes hero-rise { from { opacity: 0; transform: translateY(var(--rise, 24px)); } }
+@keyframes hero-sun-rise { from { opacity: 0; transform: translateY(70px); } }
+@keyframes hero-drift { from { transform: translateX(-28px); } to { transform: translateX(28px); } }
+@keyframes hero-sway { to { transform: translateX(var(--sway, 16px)); } }
+@keyframes hero-halo {
+  0%, 100% { transform: scale(1.15); opacity: 0.18; }
+  50% { transform: scale(1.45); opacity: 0.08; }
+}
+@keyframes hero-tree { from { transform: rotate(-0.8deg); } to { transform: rotate(0.8deg); } }
+@keyframes weave-y { to { transform: translateY(1.2px); } }
+@keyframes weave-x { to { transform: translateX(1.2px); } }
+
+/* Shuttle on the fabric card: hidden until drawn, never for reduced motion */
+.weave-shuttle { opacity: 0; transition: opacity 0.6s ease 2s; }
+[data-drawn] .weave-shuttle { opacity: 1; }
+@media (prefers-reduced-motion: reduce) {
+  .weave-shuttle { display: none; }
+}

@@ -1,8 +1,9 @@
 "use client";
 
-import { useCallback, useEffect, useState } from "react";
+import { useCallback, useState } from "react";
 import DrawOnView from "./DrawOnView";
 import { d } from "@/lib/draw";
+import { useReducedMotion } from "@/lib/useReducedMotion";
 
 const forest = "#003241";
 const rust = "#F28218";
@@ -58,11 +59,7 @@ const labels = ["A person", "A crossing", "A field", "A fabric"];
 
 export default function MeasureWeave() {
   const [live, setLive] = useState(false);
-  const [motionOk, setMotionOk] = useState(false);
-
-  useEffect(() => {
-    setMotionOk(!window.matchMedia("(prefers-reduced-motion: reduce)").matches);
-  }, []);
+  const motionOk = !useReducedMotion();
 
   // Start the travelling dots once the strip has finished drawing in.
   const onDrawn = useCallback(() => {

@@ -77,15 +77,25 @@ function LayerMark({ step }: { step: number }) {
         )}
         {step === 3 && (
           <>
+            {/* once drawn, threads breathe in counter-phase (weave-a / weave-b) */}
             {[14, 24, 34].map((y, i) => (
-              <path key={y} className="dl" style={d(t + i * 0.12)} pathLength="1" d={`M6 ${y} C 18 ${y - 6}, 30 ${y + 6}, 42 ${y}`} strokeLinecap="round" />
+              <g key={y} className={i % 2 ? "weave-b" : "weave-a"}>
+                <path id={i === 1 ? "lm-weft" : undefined} className="dl" style={d(t + i * 0.12)} pathLength="1" d={`M6 ${y} C 18 ${y - 6}, 30 ${y + 6}, 42 ${y}`} strokeLinecap="round" />
+              </g>
             ))}
             {[14, 24, 34].map((x, i) => (
-              <path key={x} className="dl" style={d(t + 0.4 + i * 0.12)} pathLength="1" d={`M${x} 6 V42`} strokeOpacity="0.35" strokeLinecap="round" />
+              <g key={x} className={i % 2 ? "weave-a-x" : "weave-b-x"}>
+                <path className="dl" style={d(t + 0.4 + i * 0.12)} pathLength="1" d={`M${x} 6 V42`} strokeOpacity="0.35" strokeLinecap="round" />
+              </g>
             ))}
             {dot(14, 13, 2.2, 1.0)}
-            {dot(24, 24, 2.2, 1.1)}
             {dot(34, 35, 2.2, 1.2)}
+            {/* the shuttle: a dot that keeps passing back and forth along the middle thread */}
+            <circle className="weave-shuttle" r="2.4" fill="#F28218" stroke="none">
+              <animateMotion dur="5s" repeatCount="indefinite" keyPoints="0;1;0" keyTimes="0;0.5;1" calcMode="spline" keySplines="0.45 0 0.55 1;0.45 0 0.55 1">
+                <mpath href="#lm-weft" />
+              </animateMotion>
+            </circle>
           </>
         )}
       </svg>

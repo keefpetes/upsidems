@@ -1,3 +1,5 @@
+import type React from "react";
+
 type Props = { className?: string };
 
 const forest = "#1F4B43";
@@ -9,6 +11,13 @@ const oceanBand = "#C9DAD3";
 const oceanWave = "#AFC7BE";
 const sand = "#E4D9C0";
 const driftwood = "#8C7355";
+
+/*
+ * Motion (globals.css, "Living hero"): each layer gets an outer <g> that
+ * builds in once on load (hero-in-*) and an inner element that keeps a slow
+ * ambient loop (hero-amb-*). Kept on separate elements so the two transforms
+ * never fight. All of it is off for prefers-reduced-motion.
+ */
 
 /** Static backdrop for the layered hero scene — sky, ocean, and sand bands. No motion. */
 export function HeroBaseArt({ className = "" }: Props) {
@@ -43,9 +52,11 @@ export function HeroCloudsArt({ className = "" }: Props) {
       preserveAspectRatio="xMidYMid slice"
       xmlns="http://www.w3.org/2000/svg"
     >
-      <ellipse cx="120" cy="95" rx="95" ry="24" fill={oceanBand} opacity="0.5" />
-      <ellipse cx="420" cy="75" rx="115" ry="26" fill={oceanBand} opacity="0.38" />
-      <ellipse cx="690" cy="110" rx="85" ry="22" fill={oceanBand} opacity="0.45" />
+      <g className="hero-in-fade" style={{ "--d": "0.1s" } as React.CSSProperties}>
+        <ellipse className="hero-amb-cloud" style={{ "--dur": "38s" } as React.CSSProperties} cx="120" cy="95" rx="95" ry="24" fill={oceanBand} opacity="0.5" />
+        <ellipse className="hero-amb-cloud" style={{ "--dur": "52s", "--delay": "-20s" } as React.CSSProperties} cx="420" cy="75" rx="115" ry="26" fill={oceanBand} opacity="0.38" />
+        <ellipse className="hero-amb-cloud" style={{ "--dur": "44s", "--delay": "-9s" } as React.CSSProperties} cx="690" cy="110" rx="85" ry="22" fill={oceanBand} opacity="0.45" />
+      </g>
     </svg>
   );
 }
@@ -59,7 +70,10 @@ export function HeroSunArt({ className = "" }: Props) {
       preserveAspectRatio="xMidYMid slice"
       xmlns="http://www.w3.org/2000/svg"
     >
-      <circle cx="670" cy="80" r="42" fill={rust} opacity="0.85" />
+      <g className="hero-in-sun">
+        <circle className="hero-amb-halo" cx="670" cy="80" r="42" fill={rust} opacity="0.18" />
+        <circle className="hero-amb-sun" cx="670" cy="80" r="42" fill={rust} opacity="0.85" />
+      </g>
     </svg>
   );
 }
@@ -73,8 +87,10 @@ export function HeroMountainsArt({ className = "" }: Props) {
       preserveAspectRatio="xMidYMid slice"
       xmlns="http://www.w3.org/2000/svg"
     >
-      <path d="M0 170 L100 120 L210 170 Z" fill={forest} opacity="0.25" />
-      <path d="M520 170 L640 110 L760 170 L800 170 Z" fill={forest} opacity="0.2" />
+      <g className="hero-in-rise" style={{ "--d": "0.5s", "--rise": "18px" } as React.CSSProperties}>
+        <path d="M0 170 L100 120 L210 170 Z" fill={forest} opacity="0.25" />
+        <path d="M520 170 L640 110 L760 170 L800 170 Z" fill={forest} opacity="0.2" />
+      </g>
     </svg>
   );
 }
@@ -88,28 +104,34 @@ export function HeroWavesArt({ className = "" }: Props) {
       preserveAspectRatio="xMidYMid slice"
       xmlns="http://www.w3.org/2000/svg"
     >
-      <path
-        d="M0 205 Q200 188 400 207 T800 200"
-        fill="none"
-        stroke={oceanWave}
-        strokeWidth="4"
-        opacity="0.7"
-      />
-      <path
-        d="M0 236 Q200 220 400 238 T800 231"
-        fill="none"
-        stroke={oceanWave}
-        strokeWidth="4"
-        opacity="0.5"
-      />
+      <g className="hero-in-fade" style={{ "--d": "0.8s" } as React.CSSProperties}>
+        <path
+          className="hero-amb-wave"
+          style={{ "--dur": "7s" } as React.CSSProperties}
+          d="M-40 205 Q160 188 360 207 T760 200 T1160 207"
+          fill="none"
+          stroke={oceanWave}
+          strokeWidth="4"
+          opacity="0.7"
+        />
+        <path
+          className="hero-amb-wave"
+          style={{ "--dur": "9s", "--delay": "-3s", "--sway": "-16px" } as React.CSSProperties}
+          d="M-40 236 Q160 220 360 238 T760 231 T1160 238"
+          fill="none"
+          stroke={oceanWave}
+          strokeWidth="4"
+          opacity="0.5"
+        />
+      </g>
     </svg>
   );
 }
 
-function PineTree({ cx, scale = 1 }: { cx: number; scale?: number }) {
+function PineTree({ cx, scale = 1, delay = "0s" }: { cx: number; scale?: number; delay?: string }) {
   const baseY = 500;
   return (
-    <g>
+    <g className="hero-amb-tree" style={{ "--delay": delay } as React.CSSProperties}>
       <rect
         x={cx - 6 * scale}
         y={baseY - 26 * scale}
@@ -143,9 +165,10 @@ export function HeroForegroundArt({ className = "" }: Props) {
       xmlns="http://www.w3.org/2000/svg"
     >
       {/* pine trees anchoring the corners */}
+      <g className="hero-in-rise" style={{ "--d": "1.0s", "--rise": "40px" } as React.CSSProperties}>
       <PineTree cx={30} scale={1} />
-      <PineTree cx={85} scale={0.75} />
-      <PineTree cx={765} scale={0.9} />
+      <PineTree cx={85} scale={0.75} delay="-2.2s" />
+      <PineTree cx={765} scale={0.9} delay="-4.1s" />
 
       {/* driftwood on the sand */}
       <rect x="90" y="360" width="130" height="15" rx="7" fill={driftwood} opacity="0.55" transform="rotate(-4 90 360)" />
@@ -175,10 +198,15 @@ export function HeroForegroundArt({ className = "" }: Props) {
         );
       })}
 
-      {/* access marker at the head of the path */}
+      </g>
+
+      {/* access marker at the head of the path — lands last, then pulses */}
       <g transform="translate(400 245)">
-        <circle r="11" fill={forestDark} />
-        <circle r="11" fill="none" stroke={cream} strokeWidth="2" />
+        <g className="hero-in-pop">
+          <circle className="hero-amb-ping" r="11" fill="none" stroke={rust} strokeWidth="2" />
+          <circle r="11" fill={forestDark} />
+          <circle r="11" fill="none" stroke={cream} strokeWidth="2" />
+        </g>
       </g>
     </svg>
   );
