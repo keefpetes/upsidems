@@ -26,6 +26,20 @@ const nextConfig: NextConfig = {
   async headers() {
     return [{ source: "/:path*", headers: securityHeaders }];
   },
+  async redirects() {
+    return [
+      // A person opening the raw feed in a browser tab (typed, bookmarked, or
+      // the browser's own RSS button) gets the friendly page instead of XML.
+      // Only real browser page loads send Sec-Fetch-Dest: document; feed
+      // readers fetch without it, so they still receive the XML.
+      {
+        source: "/feed.xml",
+        has: [{ type: "header", key: "sec-fetch-dest", value: "document" }],
+        destination: "/stories/follow",
+        permanent: false,
+      },
+    ];
+  },
 };
 
 export default nextConfig;
