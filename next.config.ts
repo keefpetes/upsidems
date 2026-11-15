@@ -28,6 +28,17 @@ const nextConfig: NextConfig = {
   },
   async redirects() {
     return [
+      // Old Squarespace addresses Google still has indexed (Search Console,
+      // Nov 2026). Permanent so their search standing passes to the new pages.
+      { source: "/home", destination: "/", permanent: true },
+      { source: "/join-us", destination: "/get-involved", permanent: true },
+      { source: "/blog", destination: "/stories", permanent: true },
+      { source: "/blog/:slug", destination: "/stories/:slug", permanent: true },
+      { source: "/blog-upsidems", destination: "/stories", permanent: true },
+      { source: "/blog-upsidems/:slug", destination: "/stories/:slug", permanent: true },
+      { source: "/terms-of-service-upsidems", destination: "/terms", permanent: true },
+      { source: "/privacy-policy-for-upsidems", destination: "/privacy-policy", permanent: true },
+
       // A person opening the raw feed in a browser tab (typed, bookmarked, or
       // the browser's own RSS button) gets the friendly page instead of XML.
       // Only real browser page loads send Sec-Fetch-Dest: document; feed
