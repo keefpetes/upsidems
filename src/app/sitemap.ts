@@ -8,6 +8,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/our-work",
     "/get-involved",
     "/stories",
+    "/stories/follow",
     "/contact",
     "/manifesto",
     "/privacy-policy",

@@ -25,8 +25,8 @@ export default function Stories() {
         These stories are about life with MS: what it takes to keep moving,
         and why the world around us matters as much as the body we live in.
       </p>
-      <a
-        href="/feed.xml"
+      <Link
+        href="/stories/follow"
         className="inline-flex items-center gap-2 mb-14 text-sm text-ink/60 hover:text-forest transition-colors"
       >
         <svg width="14" height="14" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true">
@@ -35,7 +35,7 @@ export default function Stories() {
           <path d="M1 1.5A13.5 13.5 0 0 1 14.5 15h-2A11.5 11.5 0 0 0 1 3.5z" />
         </svg>
         Follow new stories by RSS
-      </a>
+      </Link>
 
       <ScrollReveal>
         <div className="grid md:grid-cols-2 gap-10">
