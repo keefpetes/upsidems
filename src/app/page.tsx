@@ -84,6 +84,9 @@ export default function Home() {
             <h1 className="font-display text-4xl md:text-6xl leading-[1.05] text-ink">
               Access is only the beginning.
             </h1>
+            <p className="mt-5 text-lg md:text-xl leading-snug text-ink/75">
+              Upside exists to change the environment.
+            </p>
             <div className="mt-8 flex flex-wrap gap-4">
               <Link
                 href="/get-involved"
