@@ -156,7 +156,7 @@ export default function OurWork() {
                   </p>
                   <p>
                     <span className="font-semibold text-forest">
-                      {cs.concept ? "The goal" : "The outcome"} —{" "}
+                      {cs.concept ? "The model" : "The outcome"} —{" "}
                     </span>
                     {cs.outcome}
                   </p>

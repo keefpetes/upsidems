@@ -70,7 +70,7 @@ export const caseStudies: CaseStudy[] = [
     response:
       "A stable, low-maintenance boardwalk pathway sized for wheelchairs, walkers, and strollers, running from the parking area to the tideline, with a shaded rest point partway down for anyone who needs to stop.",
     outcome:
-      "This is the model we want to build first: a route short enough to fund and construct in a single season, designed with the people who'd actually use it, and documented so it can be replicated at other public beaches once proven.",
+      "A route short enough to fund and build in a single season, designed with the people who actually use it, and documented so it can be repeated at other public beaches.",
   },
   {
     slug: "concept-forest-trail",
@@ -82,7 +82,7 @@ export const caseStudies: CaseStudy[] = [
     response:
       "Shaded seating placed at set, mapped intervals along an existing trail, planned with the park authority so it fits the terrain and maintenance schedule instead of being an afterthought.",
     outcome:
-      "The goal is a small, provable pilot with one park partner — intervals close enough that someone managing fatigue can complete the trail in stages, with the model documented so other parks can adopt it without starting from scratch.",
+      "Intervals close enough that someone managing fatigue can complete the trail in stages, documented so other parks can adopt the approach without starting from scratch.",
   },
 ];
 
