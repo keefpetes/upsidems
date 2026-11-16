@@ -62,7 +62,7 @@ export function BeachPathwayArt({
       <path d="M0 280 Q400 300 800 280 V500 H0 Z" fill={creamDark} />
       {/* driftwood, placed on the sand */}
       <g className="df" style={d(1.3)}><rect x="90" y="360" width="130" height="15" rx="7" fill="#8C7355" opacity="0.55" transform="rotate(-4 90 360)" /></g>
-      <g className="df" style={d(1.45)}><rect x="580" y="410" width="150" height="16" rx="8" fill="#8C7355" opacity="0.5" transform="rotate(3 580 410)" /></g>
+      <g className="df" style={d(1.45)}><rect x="560" y="410" width="140" height="16" rx="8" fill="#8C7355" opacity="0.5" transform="rotate(3 580 410)" /></g>
       {/* accessible boardwalk pathway, widening toward the viewer */}
       <polygon className="df" style={d(0.9)} points="378,260 422,260 470,500 330,500" fill={forest} />
       <polygon
@@ -75,6 +75,8 @@ export function BeachPathwayArt({
         strokeWidth="3"
       />
       {[300, 340, 380, 420, 460].map((y, i) => {
+        // static version: the person stands over the 380/420 planks, so skip them
+        if (!animated && (y === 380 || y === 420)) return null;
         const spread = 8 + i * 7;
         return (
           <line
@@ -92,9 +94,15 @@ export function BeachPathwayArt({
         );
       })}
       {/* someone using the path — the point of the illustration */}
-      <g transform="translate(400 300)">
+      <g transform={animated ? "translate(400 300)" : "translate(400 392) scale(1.3)"}>
         <g className="dp" style={d(2.1)}>
         <g className="wanderer">
+          {/* halo in the path colour keeps plank lines from cutting through the figure */}
+          <g stroke={forest} strokeWidth="6" fill={forest}>
+            <circle cx="0" cy="18" r="16" fill="none" strokeWidth="10" />
+            <rect x="-6" y="-14" width="12" height="22" rx="5" />
+            <circle cx="0" cy="-24" r="7" />
+          </g>
           <circle cx="0" cy="18" r="16" fill="none" stroke={cream} strokeWidth="4" />
           <rect x="-6" y="-14" width="12" height="22" rx="5" fill={cream} />
           <circle cx="0" cy="-24" r="7" fill={cream} />
@@ -102,7 +110,7 @@ export function BeachPathwayArt({
         </g>
       </g>
       {/* access marker at the head of the path */}
-      <g transform="translate(400 245)">
+      <g transform="translate(400 262)">
         <g className="dp" style={d(1.9)}>
           <circle r="11" fill={forestDark} />
           <circle r="11" fill="none" stroke={cream} strokeWidth="2" />
