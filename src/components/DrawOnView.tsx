@@ -12,23 +12,28 @@ import { ReactNode, useEffect, useRef } from "react";
  * Stagger with the --d custom property (seconds), e.g. style={d(0.4)}
  * using d() from @/lib/draw.
  * Reduced-motion users see the finished art immediately (CSS gates it).
+ * `instant` skips the draw-in entirely: use for art visible on first load,
+ * so visitors never see an empty frame.
  */
 export default function DrawOnView({
   children,
   className = "",
   onDrawn,
+  instant = false,
 }: {
   children: ReactNode;
   className?: string;
   onDrawn?: () => void;
+  instant?: boolean;
 }) {
   const ref = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const node = ref.current;
     if (!node) return;
-    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+    if (instant || window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
       node.setAttribute("data-drawn", "true");
+      if (instant) onDrawn?.();
       return;
     }
     const io = new IntersectionObserver(
@@ -43,10 +48,10 @@ export default function DrawOnView({
     );
     io.observe(node);
     return () => io.disconnect();
-  }, [onDrawn]);
+  }, [onDrawn, instant]);
 
   return (
-    <div ref={ref} data-draw className={className}>
+    <div ref={ref} data-draw={instant ? undefined : ""} className={className}>
       {children}
     </div>
   );

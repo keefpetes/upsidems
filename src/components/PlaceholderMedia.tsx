@@ -6,11 +6,14 @@ export default function PlaceholderMedia({
   className = "",
   aspect = "aspect-[4/3]",
   art,
+  instant = false,
 }: {
   label?: string;
   className?: string;
   aspect?: string;
   art?: ReactNode;
+  /** Art visible on first load: show it finished, no draw-in. */
+  instant?: boolean;
 }) {
   return (
     <div
@@ -18,7 +21,7 @@ export default function PlaceholderMedia({
         art ? "" : "placeholder-media"
       } ${className}`}
     >
-      {art && <DrawOnView className="absolute inset-0">{art}</DrawOnView>}
+      {art && <DrawOnView instant={instant} className="absolute inset-0">{art}</DrawOnView>}
       {label && (
         <div className="absolute bottom-4 left-4">
           <span className="text-xs uppercase tracking-wide text-forest/70 bg-cream/85 rounded-full px-3 py-1">

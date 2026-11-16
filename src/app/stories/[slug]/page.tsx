@@ -4,7 +4,6 @@ import { pageMetadata } from "@/lib/seo";
 import StoryImage from "@/components/StoryImage";
 import StoryBody from "@/components/StoryBody";
 import { notFound } from "next/navigation";
-import Parallax from "@/components/Parallax";
 import ScrollReveal from "@/components/ScrollReveal";
 import { baseUrl, stories } from "@/lib/site";
 
@@ -73,7 +72,7 @@ export default async function StoryPage({
           <span className="font-medium text-ink">Content warning:</span> {story.contentWarning}
         </p>
       )}
-      <Parallax speed={0.12} className="mb-10 will-change-transform">
+      <div className="mb-10">
         <StoryImage story={story} sizes="(min-width: 768px) 720px, 100vw" preload />
         <p className="mt-2 text-xs text-ink/40">
           Photo:{" "}
@@ -82,7 +81,7 @@ export default async function StoryPage({
           </a>{" "}
           / Unsplash
         </p>
-      </Parallax>
+      </div>
       <ScrollReveal>
         <StoryBody blocks={story.body ?? [story.excerpt]} />
         <p data-scroll-reveal className="mt-10 font-display text-lg text-ink/70">

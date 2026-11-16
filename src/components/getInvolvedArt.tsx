@@ -19,7 +19,7 @@ const pathD = (y: number) => {
 
 export function ConvergingPaths({ className = "" }: { className?: string }) {
   return (
-    <DrawOnView className={className}>
+    <DrawOnView instant className={className}>
       <svg viewBox="0 0 360 240" className="w-full h-auto" fill="none" aria-hidden="true">
         {starts.map((y, i) => (
           <path
@@ -69,7 +69,7 @@ export function PathIcon({ slug, step }: { slug: string; step: number }) {
     <circle className="dp" style={d(t + delay)} cx={cx} cy={cy} r={r} fill={rust} stroke="none" />
   );
   return (
-    <DrawOnView className="h-12 w-12">
+    <DrawOnView instant className="h-12 w-12">
       <svg viewBox="0 0 48 48" className="h-12 w-12 text-forest" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
         {slug === "advocate" && (
           <>

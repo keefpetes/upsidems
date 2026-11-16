@@ -127,7 +127,7 @@ export default function OurWork() {
           >
             <div className={i % 2 === 1 ? "md:order-2" : ""}>
               <Parallax speed={0.12}>
-                <PlaceholderMedia art={i === 0 ? <BeachPathwayArt className="w-full h-full" /> : <TrailRestArt className="w-full h-full" />} />
+                <PlaceholderMedia instant={i === 0} art={i === 0 ? <BeachPathwayArt className="w-full h-full" /> : <TrailRestArt className="w-full h-full" />} />
               </Parallax>
             </div>
             <div>
