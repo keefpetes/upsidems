@@ -1,5 +1,4 @@
 import Link from "next/link";
-import Parallax from "@/components/Parallax";
 import PlaceholderMedia from "@/components/PlaceholderMedia";
 import ScrollReveal from "@/components/ScrollReveal";
 import { CrossSectionArt } from "@/components/illustrations";
@@ -37,13 +36,13 @@ export default function About() {
         lived experience.
       </h1>
 
-      <Parallax speed={0.12} className="mb-14">
+      <div className="mb-14">
         <PlaceholderMedia
           label="How an accessible pathway is built, layer by layer"
           aspect="aspect-[16/9]"
           art={<CrossSectionArt className="w-full h-full" />}
         />
-      </Parallax>
+      </div>
 
       <ScrollReveal>
         <div className="prose-none space-y-6 text-ink/85 leading-relaxed">

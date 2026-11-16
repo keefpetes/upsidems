@@ -135,12 +135,10 @@ export function CrossSectionArt({ className = "" }: Props) {
       xmlns="http://www.w3.org/2000/svg"
     >
       <rect width="800" height="450" fill={cream} />
-      <g transform="translate(60 15)">
-        {rows.map((layer, i) => (
+      <g transform="translate(80 5)">
+        {rows.map((layer) => (
           <rect
             key={layer.label}
-            className="dx"
-            style={d(0.15 + (rows.length - 1 - i) * 0.18)}
             x={0}
             y={layer.y}
             width={520}
@@ -150,19 +148,19 @@ export function CrossSectionArt({ className = "" }: Props) {
         ))}
         {/* surface texture strokes on top layer */}
         <g stroke={forestDark} strokeWidth="2" opacity="0.25">
-          {Array.from({ length: 13 }).map((_, i) => (
-            <line key={i} className="dx" style={d(1.1 + i * 0.04)} x1={8 + i * 44} y1={68} x2={20 + i * 44} y2={68} />
+          {Array.from({ length: 12 }).map((_, i) => (
+            <line key={i} x1={16 + i * 44} y1={68} x2={28 + i * 44} y2={68} />
           ))}
         </g>
         {/* dimension bracket */}
         <g stroke={forestDark} strokeWidth="2" opacity="0.55" fill="none">
-          <line className="dl" style={d(0.2)} pathLength="1" x1={-22} y1={y} x2={-22} y2={40} />
+          <line className="dl" style={d(0)} pathLength="1" x1={-22} y1={y} x2={-22} y2={40} />
           <line x1={-30} y1={40} x2={-14} y2={40} />
           <line x1={-30} y1={y} x2={-14} y2={y} />
         </g>
         {/* layer divider lines + labels */}
         {rows.map((layer, i) => (
-          <g key={layer.label} className="df" style={d(0.5 + (rows.length - 1 - i) * 0.18)}>
+          <g key={layer.label} className="df" style={d(0.1 + i * 0.08)}>
             <line
               x1={0}
               y1={layer.y}
