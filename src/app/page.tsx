@@ -38,7 +38,7 @@ export default function Home() {
       {/* Hero */}
       <section className="relative overflow-hidden">
         <PlaceholderMedia
-          aspect="aspect-[16/10] md:aspect-[21/9] md:max-h-[max(22rem,calc(100svh-13rem))]"
+          aspect="w-full aspect-[16/10] md:aspect-[21/9] md:max-h-[max(22rem,calc(100svh-13rem))]"
           className="rounded-none border-0"
           art={
             <>
