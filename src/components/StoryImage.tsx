@@ -18,7 +18,7 @@ export default function StoryImage({
         fill
         sizes={sizes}
         preload={preload}
-        className="object-cover transition-transform duration-700 group-hover:scale-[1.03]"
+        className="object-cover transition-transform duration-700 group-hover:scale-[1.06]"
       />
     </div>
   );

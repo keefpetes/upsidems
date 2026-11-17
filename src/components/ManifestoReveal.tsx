@@ -29,7 +29,7 @@ export default function ManifestoReveal({ children }: { children: ReactNode }) {
           }
         });
       },
-      { threshold: 0.2, rootMargin: "0px 0px -8% 0px" }
+      { threshold: 0 }
     );
 
     targets.forEach((el) => io.observe(el));

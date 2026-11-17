@@ -1,8 +1,10 @@
 import Link from "next/link";
+import { DeadEndBoardwalkArt } from "@/components/smallArt";
 
 export default function NotFound() {
   return (
     <div className="mx-auto max-w-2xl px-6 py-24 text-center">
+      <DeadEndBoardwalkArt className="mx-auto mb-8 w-full max-w-sm" />
       <span className="text-xs uppercase tracking-wide text-rust">404</span>
       <h1 className="font-display text-4xl md:text-5xl mt-3 mb-6 text-ink">
         This path doesn&apos;t go anywhere.

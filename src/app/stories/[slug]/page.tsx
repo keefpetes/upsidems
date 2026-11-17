@@ -4,6 +4,7 @@ import { pageMetadata } from "@/lib/seo";
 import StoryImage from "@/components/StoryImage";
 import StoryBody from "@/components/StoryBody";
 import { notFound } from "next/navigation";
+import ReadingProgress from "@/components/ReadingProgress";
 import ScrollReveal from "@/components/ScrollReveal";
 import { baseUrl, stories } from "@/lib/site";
 
@@ -43,6 +44,7 @@ export default async function StoryPage({
 
   return (
     <div className="mx-auto max-w-3xl px-6 py-20">
+      <ReadingProgress />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{

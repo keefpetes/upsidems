@@ -1,5 +1,6 @@
 import ContactForm from "@/components/ContactForm";
 import ScrollReveal from "@/components/ScrollReveal";
+import { MessagePathArt } from "@/components/smallArt";
 import { contactEmail, location } from "@/lib/site";
 import { pageMetadata } from "@/lib/seo";
 
@@ -14,6 +15,7 @@ export const metadata = pageMetadata({
 export default function Contact() {
   return (
     <div className="mx-auto max-w-2xl px-6 py-24 text-center">
+      <MessagePathArt className="mx-auto mb-8 w-full max-w-xs" />
       <span className="text-xs uppercase tracking-wide text-rust">
         Contact
       </span>

@@ -54,7 +54,8 @@ export default function Stories() {
                 {story.excerpt}
               </p>
               <span className="text-sm text-forest underline underline-offset-4 mt-3 inline-block">
-                Read more →
+                Read more{" "}
+                <span className="inline-block transition-transform duration-300 group-hover:translate-x-1">→</span>
               </span>
             </Link>
           ))}
