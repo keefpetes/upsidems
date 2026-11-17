@@ -20,9 +20,9 @@ export default function Header() {
 
   return (
     <header className="sticky top-0 z-50 bg-cream/95 backdrop-blur border-b border-ink/10">
-      <div className="mx-auto max-w-6xl px-6 flex items-center justify-between h-20">
+      <div className="mx-auto max-w-6xl px-6 flex items-center justify-between h-20 md:h-24">
         <Link href="/" className="flex items-center">
-          <Image src="/logo.png" alt="Upside MS Foundation" width={56} height={56} className="rounded-sm" preload />
+          <Image src="/logo-header.png" alt="Upside MS Foundation" width={480} height={474} className="h-[60px] w-auto md:h-[76px]" preload />
         </Link>
         <nav className="hidden md:flex items-center gap-8">
           {nav.map((item) => (
