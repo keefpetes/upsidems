@@ -20,7 +20,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   const storyRoutes = stories.map((story) => ({
     url: `${baseUrl}/stories/${story.slug}`,
-    lastModified: new Date(),
+    lastModified: new Date(story.date),
   }));
 
   return [...staticRoutes, ...storyRoutes];
