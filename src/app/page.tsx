@@ -163,7 +163,7 @@ export default function Home() {
                 Design observations and case studies
               </span>
               <h2 className="font-display text-3xl mt-2 mb-4 text-ink">
-                We write down where a site breaks down, and why.
+                We document where access fails on real sites, and why.
               </h2>
               <p className="text-sm leading-relaxed text-ink/80">
                 Every site we look at gets documented in plain terms: what
