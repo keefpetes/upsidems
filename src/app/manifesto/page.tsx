@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Fraunces, Inter } from "next/font/google";
+import Link from "next/link";
 import { ReactNode } from "react";
 import ManifestoReveal from "@/components/ManifestoReveal";
 import styles from "./manifesto.module.css";
@@ -212,6 +213,23 @@ export default function Manifesto() {
             <div data-reveal className={styles.sig}>
               <span className={styles.mark}>Upside MS Foundation</span>
             </div>
+          </section>
+
+          {/* WHERE THIS COMES FROM */}
+          <section className={styles.further}>
+            <p data-reveal className={`${styles.line} ${styles.dim}`}>
+              Where this comes from, in KP&rsquo;s words:
+            </p>
+            <p data-reveal className={styles.line}>
+              <Link href="/stories/so-it-looks-like-ms" className={styles.postLink}>
+                &ldquo;So it looks like MS.&rdquo;
+              </Link>
+            </p>
+            <p data-reveal className={styles.line}>
+              <Link href="/stories/you-dont-need-a-cure-to-be-whole" className={styles.postLink}>
+                You Don&rsquo;t Need a Cure to Be Whole
+              </Link>
+            </p>
           </section>
         </ManifestoReveal>
       </main>

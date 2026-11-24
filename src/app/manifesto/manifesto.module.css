@@ -226,6 +226,30 @@
   color: var(--seaglass);
 }
 
+.further {
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 0 8vw 18vh;
+  text-align: center;
+}
+
+.further .line {
+  margin-bottom: 0.6em;
+}
+
+.postLink {
+  color: var(--shore);
+  text-decoration: underline;
+  text-decoration-color: var(--coral);
+  text-underline-offset: 0.2em;
+  text-decoration-thickness: 1px;
+}
+
+.postLink:hover,
+.postLink:focus-visible {
+  color: var(--coral);
+}
+
 @media (prefers-reduced-motion: reduce) {
   .horizon::after {
     animation: none;
