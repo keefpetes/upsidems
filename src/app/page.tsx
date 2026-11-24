@@ -24,9 +24,41 @@ const whatWeDo = [
     title: "Advocacy and consultation",
     body: "We work with municipalities and institutions to treat access as infrastructure. It belongs in the plan from the start.",
   },
+];
+
+// Fixed figures today. If these ever come from a CMS, StatCounter already
+// renders nothing for an empty value, and the filter below drops the card.
+const stats: {
+  value: number | null | undefined;
+  from?: number;
+  decimals?: number;
+  prefix?: string;
+  suffix?: string;
+  label: string;
+}[] = [
   {
-    title: "Design observations and case studies",
-    body: "We document what we find on real sites and share it in plain terms, so better decisions get made next time.",
+    value: 10.6,
+    decimals: 1,
+    suffix: "%",
+    label: "of Canadians aged 15+ live with a mobility disability",
+  },
+  {
+    value: 3.1,
+    decimals: 1,
+    suffix: " million",
+    label: "people in Canada that represents",
+  },
+  {
+    value: 4,
+    from: 1,
+    prefix: "1 in ",
+    label: "Canadians aged 65+ live with a mobility disability",
+  },
+  {
+    value: 385,
+    from: 1,
+    prefix: "1 in ",
+    label: "Canadians live with MS",
   },
 ];
 
@@ -119,10 +151,52 @@ export default function Home() {
         </ScrollReveal>
       </section>
 
+      {/* Design observations */}
+      <section className="mx-auto max-w-6xl px-6 pt-16">
+        <ScrollReveal>
+          <div
+            data-scroll-reveal
+            className="grid md:grid-cols-5 gap-8 rounded-3xl border border-ink/10 bg-cream-dark p-8 md:p-12"
+          >
+            <div className="md:col-span-2">
+              <span className="text-xs uppercase tracking-wide text-rust">
+                Design observations and case studies
+              </span>
+              <h2 className="font-display text-3xl mt-2 mb-4 text-ink">
+                We write down where a site breaks down, and why.
+              </h2>
+              <p className="text-sm leading-relaxed text-ink/80">
+                Every site we look at gets documented in plain terms: what
+                stops people, what it would take to fix, and what the next
+                planner should do differently. Councils, park authorities and
+                designers can use it without starting from scratch.
+              </p>
+            </div>
+            <div className="md:col-span-3 rounded-2xl bg-cream border border-ink/10 p-7">
+              <p className="text-xs uppercase tracking-wide text-ink/50 mb-2">
+                From the field · {featured.location}
+              </p>
+              <h3 className="font-display text-xl text-forest mb-3">
+                {featured.title}
+              </h3>
+              <p className="text-sm leading-relaxed text-ink/80 mb-5">
+                {featured.problem}
+              </p>
+              <Link
+                href={`/our-work#${featured.slug}`}
+                className="text-sm text-forest underline underline-offset-4 hover:text-forest-dark"
+              >
+                Read the full observation →
+              </Link>
+            </div>
+          </div>
+        </ScrollReveal>
+      </section>
+
       {/* What we do */}
       <section className="mx-auto max-w-6xl px-6 py-16">
         <ScrollReveal>
-          <div className="grid md:grid-cols-3 gap-8">
+          <div className="grid md:grid-cols-2 gap-8">
             {whatWeDo.map((item) => (
               <div
                 key={item.title}
@@ -139,56 +213,6 @@ export default function Home() {
             ))}
           </div>
         </ScrollReveal>
-      </section>
-
-      {/* Proof strip */}
-      <section className="bg-forest text-cream">
-        <div className="mx-auto max-w-6xl px-6 py-14">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
-            {[
-              {
-                value: 10.6,
-                decimals: 1,
-                suffix: "%",
-                label: "of Canadians aged 15+ live with a mobility disability",
-              },
-              {
-                value: 3.1,
-                decimals: 1,
-                suffix: " million",
-                label: "people in Canada that represents",
-              },
-              {
-                value: 4,
-                prefix: "1 in ",
-                label: "Canadians aged 65+ live with a mobility disability",
-              },
-              {
-                value: 385,
-                prefix: "1 in ",
-                label: "Canadians live with MS",
-              },
-            ].map((s) => (
-              <div key={s.label}>
-                <div className="font-display text-4xl mb-1">
-                  <StatCounter
-                    value={s.value}
-                    decimals={s.decimals}
-                    prefix={s.prefix}
-                    suffix={s.suffix}
-                  />
-                </div>
-                <div className="text-xs uppercase tracking-wide text-cream/60">
-                  {s.label}
-                </div>
-              </div>
-            ))}
-          </div>
-          <p className="mt-8 text-xs text-cream/40 text-center">
-            Sources: Statistics Canada, Canadian Survey on Disability, 2022;
-            MS Canada.
-          </p>
-        </div>
       </section>
 
       {/* Featured case study */}
@@ -219,6 +243,39 @@ export default function Home() {
               </Link>
             </div>
           </ScrollReveal>
+        </div>
+      </section>
+
+      {/* Who that project is for */}
+      <section className="bg-forest text-cream">
+        <div className="mx-auto max-w-6xl px-6 py-14">
+          <p className="font-display text-xl md:text-2xl text-center mb-10 max-w-2xl mx-auto">
+            Who a pathway like this is for
+          </p>
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+            {stats
+              .filter((s) => typeof s.value === "number" && s.value > 0)
+              .map((s) => (
+                <div key={s.label}>
+                  <div className="font-display text-4xl mb-1">
+                    <StatCounter
+                      value={s.value}
+                      from={s.from}
+                      decimals={s.decimals}
+                      prefix={s.prefix}
+                      suffix={s.suffix}
+                    />
+                  </div>
+                  <div className="text-xs uppercase tracking-wide text-cream/60">
+                    {s.label}
+                  </div>
+                </div>
+              ))}
+          </div>
+          <p className="mt-8 text-xs text-cream/40 text-center">
+            Sources: Statistics Canada, Canadian Survey on Disability, 2022;
+            MS Canada.
+          </p>
         </div>
       </section>
 

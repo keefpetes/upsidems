@@ -123,7 +123,8 @@ export default function OurWork() {
         {caseStudies.map((cs, i) => (
           <article
             key={cs.slug}
-            className="grid md:grid-cols-2 gap-10 items-center"
+            id={cs.slug}
+            className="grid md:grid-cols-2 gap-10 items-center scroll-mt-32"
           >
             <div className={i % 2 === 1 ? "md:order-2" : ""}>
               <Parallax speed={0.12}>
